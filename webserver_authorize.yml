@@ -1,0 +1,10 @@
+---
+- hosts: christopherad-web
+  become: true
+
+  tasks:
+    - name: Set authorized key taken from file
+      authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', public_key) }}"
