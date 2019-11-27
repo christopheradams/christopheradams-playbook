@@ -1,0 +1,7 @@
+plugin: linode
+regions:
+  - ap-northeast
+groups:
+  - christopherad_group
+types:
+  - g6-nanode-1

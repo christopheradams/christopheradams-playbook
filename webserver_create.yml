@@ -1,0 +1,18 @@
+- name: Create Webserver
+  hosts: localhost
+  vars_files:
+      - ./group_vars/christopherad_group/vars
+  tasks:
+  - name: Create a new nano Linode.
+    linode_v4:
+      label: christopherad-web
+      access_token: "{{ token }}"
+      type: g6-nanode-1
+      region: ap-northeast
+      image: linode/ubuntu18.04
+      root_pass: "{{ password }}"
+      authorized_keys: "{{ ssh_keys }}"
+      group: christopherad_group
+      tags: christopherad_group
+      state: present
+    register: christopherad_web
