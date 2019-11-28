@@ -9,3 +9,21 @@
     - name: Install required system packages
       apt: name={{ item }} state=latest update_cache=yes
       loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools', 'build-essential']
+
+    - name: Create repositories directory
+      file:
+        path: "{{ git.base_dir }}"
+        state: directory
+
+    - name: Init repositories
+      command: git init --bare {{item}}
+      loop: "{{ git.init }}"
+      args:
+        chdir: "{{ git.base_dir }}"
+
+    - name: Clone repositories
+      git:
+        repo: "{{ item }}"
+        dest: "{{ git.base_dir }}/{{ item | urlsplit('path') | basename }}"
+        bare: yes
+      loop: "{{ git.clone }}"

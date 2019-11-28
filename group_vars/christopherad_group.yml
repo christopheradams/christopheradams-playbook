@@ -1,3 +1,9 @@
 ssh_keys: "{{ lookup('env','LINODE_SSH_PUBKEY') }}"
 password: "{{ lookup('env','LINODE_ROOT_PASSWORD') }}"
 token: "{{ lookup('env','LINODE_ACCESS_TOKEN') }}"
+git:
+  base_dir: "/srv/git"
+  clone:
+    - "https://github.com/christopheradams/christopheradams.github.io.git"
+  init:
+    - "Org.git"
