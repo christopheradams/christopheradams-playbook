@@ -54,6 +54,10 @@ Add an authorized SSH key:
 
     ansible-playbook -vv -i linode.yml webserver_authorize.yml -u root -e public_key=/path/to/id_rsa.pub
 
+Upgrade (reboots automatically):
+
+    ansible-playbook -vv -i linode.yml webserver_upgrade.yml -u root
+
 Reboot:
 
     ansible-playbook -vv -i linode.yml webserver_reboot.yml -u root
