@@ -1,7 +1,7 @@
 - name: Create Webserver
   hosts: localhost
   vars_files:
-      - ./group_vars/christopherad_group/vars
+      - ./group_vars/christopherad_group.yml
   tasks:
   - name: Create a new nano Linode.
     linode_v4:
