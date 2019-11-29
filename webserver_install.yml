@@ -23,6 +23,10 @@
         state: latest
         user_install: no
 
+    - name: Install webserver packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: ['nginx']
+
     - name: Create server directories
       file:
         path: "{{ item }}"
@@ -41,3 +45,8 @@
         dest: "{{ git.base_dir }}/{{ item | urlsplit('path') | basename }}"
         bare: yes
       loop: "{{ git.clone }}"
+
+    - name: Copy nginx configs
+      copy:
+        src: sites-available/
+        dest: /etc/nginx/sites-available
