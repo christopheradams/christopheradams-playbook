@@ -62,6 +62,10 @@ Reboot:
 
     ansible-playbook -vv -i linode.yml webserver_reboot.yml -u root
 
+### Build website
+
+    ansible-playbook -vv -i linode.yml webserver_build.yml -u root
+
 [Ansible]: https://www.linode.com/docs/applications/configuration-management/getting-started-with-ansible/#install-ansible
 [Linode API token]: https://www.linode.com/docs/platform/api/getting-started-with-the-linode-api/#get-an-access-token
 

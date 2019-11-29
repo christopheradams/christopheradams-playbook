@@ -1,0 +1,26 @@
+---
+- hosts: christopherad-web
+  become: true
+  vars:
+    git_repo: "{{ git.base_dir }}/{{ www_repo }}.git"
+    tmp_dir: "/tmp/{{ www_repo }}"
+    www_dir: "{{ www.base_dir }}/{{ www_repo }}"
+
+  tasks:
+    - name: Clone website to tmp
+      git:
+        repo: "{{ git_repo }}"
+        dest: "{{ tmp_dir }}"
+
+    - name: Bundle install
+      bundler:
+        state: present
+        chdir: "{{ tmp_dir }}"
+
+    - name: Jekyll build
+      command: jekyll build -s {{ tmp_dir }} -d {{ www_dir }}
+
+    - name: Remove tmp
+      file:
+        path: "{{ tmp_dir }}"
+        state: absent
