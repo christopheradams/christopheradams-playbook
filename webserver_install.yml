@@ -10,10 +10,11 @@
       apt: name={{ item }} state=latest update_cache=yes
       loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools', 'build-essential']
 
-    - name: Create repositories directory
+    - name: Create server directories
       file:
-        path: "{{ git.base_dir }}"
+        path: "{{ item }}"
         state: directory
+      loop: ["{{ www.base_dir }}", "{{ git.base_dir }}"]
 
     - name: Init repositories
       command: git init --bare {{item}}

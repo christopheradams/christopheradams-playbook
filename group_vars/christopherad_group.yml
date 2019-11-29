@@ -1,6 +1,8 @@
 ssh_keys: "{{ lookup('env','LINODE_SSH_PUBKEY') }}"
 password: "{{ lookup('env','LINODE_ROOT_PASSWORD') }}"
 token: "{{ lookup('env','LINODE_ACCESS_TOKEN') }}"
+www:
+  base_dir: "/srv/www"
 git:
   base_dir: "/srv/git"
   clone:
