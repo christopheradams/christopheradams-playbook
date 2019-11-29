@@ -4,7 +4,7 @@
   vars:
     git_repo: "{{ git.base_dir }}/{{ www_repo }}.git"
     tmp_dir: "/tmp/{{ www_repo }}"
-    www_dir: "{{ www.base_dir }}/{{ www_repo }}"
+    www_dir: "{{ www.base_dir }}/{{ www_repo }}/public"
 
   tasks:
     - name: Clone website to tmp
