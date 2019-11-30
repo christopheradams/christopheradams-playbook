@@ -8,5 +8,6 @@ git:
   base_dir: "/srv/git"
   clone:
     - "https://github.com/christopheradams/{{ www_repo }}.git"
+    - "https://github.com/christopheradams/hello-wwworld.git"
   init:
     - "Org.git"
