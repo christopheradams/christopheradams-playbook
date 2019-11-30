@@ -1,0 +1,10 @@
+---
+- hosts: christopherad-web
+  become: true
+
+  tasks:
+    - name: Crontab goaccess
+      cron:
+        name: "goaccess"
+        minute: "*/5"
+        job: "/usr/bin/goaccess -f /var/log/nginx/access.log -o /srv/www/cxa.la/stats/index.html"
