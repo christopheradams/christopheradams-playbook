@@ -8,6 +8,7 @@
     hello_repo: "{{ git.base_dir }}/hello-wwworld.git"
     cxa_tmp_dir: "/tmp/cxa.la.git"
     cxa_dir: "{{ www.base_dir }}/cxa.la/public"
+    stats_dir: "{{ www.base_dir }}/cxa.la/stats"
 
   tasks:
     - name: Clone website to tmp
@@ -45,3 +46,7 @@
         path: "{{ cxa_tmp_dir }}"
         state: absent
 
+    - name: Add stats dir
+      file:
+        path: "{{ stats_dir }}"
+        state: directory
