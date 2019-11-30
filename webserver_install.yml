@@ -25,7 +25,7 @@
 
     - name: Install webserver packages
       apt: name={{ item }} state=latest update_cache=yes
-      loop: ['nginx']
+      loop: ['nginx', 'goaccess']
 
     - name: Create server directories
       file:
