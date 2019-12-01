@@ -6,7 +6,7 @@
   - name: Create a new nano Linode.
     linode_v4:
       label: christopherad-web
-      access_token: "{{ token }}"
+      access_token: "{{ linode_token }}"
       type: g6-nanode-1
       region: ap-northeast
       image: linode/ubuntu18.04

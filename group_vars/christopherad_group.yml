@@ -1,6 +1,6 @@
 ssh_keys: "{{ lookup('env','SSH_PUBKEY') }}"
 password: "{{ lookup('env','ROOT_PASSWORD') }}"
-token: "{{ lookup('env','LINODE_ACCESS_TOKEN') }}"
+linode_token: "{{ lookup('env','LINODE_ACCESS_TOKEN') }}"
 www_repo: "christopheradams.github.io"
 www:
   base_dir: "/srv/www"
