@@ -1,6 +1,5 @@
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server ipv6only=on;
+	listen 80;
 
 	root /srv/www/cxa.la/public;
 	index index.html index.htm;
