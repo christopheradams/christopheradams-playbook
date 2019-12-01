@@ -13,6 +13,10 @@
       apt: name={{ item }} state=latest update_cache=yes
       loop: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools', 'build-essential']
 
+    - name: Enable universe repository
+      apt_repository:
+        repo: "deb http://archive.ubuntu.com/ubuntu/ bionic universe"
+
     - name: Install Ruby packages
       apt: name={{ item }} state=latest update_cache=yes
       loop: ['ruby', 'ruby-dev', 'libxslt-dev', 'libxml2-dev']
@@ -28,7 +32,7 @@
 
     - name: Install webserver packages
       apt: name={{ item }} state=latest update_cache=yes
-      loop: ['nginx', 'goaccess']
+      loop: ['nginx', 'certbot', 'python-certbot-nginx', 'goaccess']
 
     - name: Create server directories
       file:
