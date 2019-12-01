@@ -1,5 +1,8 @@
 ---
-- hosts: christopherad-web
+- name : Install Webserver
+  hosts: christopherad-web
+  vars_files:
+      - ./group_vars/christopherad_group.yml
   become: true
 
   tasks:
