@@ -1,3 +1,4 @@
+email: chris@cxa.la
 ssh_keys: "{{ lookup('env','SSH_PUBKEY') }}"
 ssh_fingerprint: "{{ lookup('env','SSH_FINGERPRINT') }}"
 password: "{{ lookup('env','ROOT_PASSWORD') }}"
