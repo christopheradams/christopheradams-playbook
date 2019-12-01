@@ -1,0 +1,21 @@
+- name: Create Webserver
+  hosts: localhost
+  vars_files:
+      - ./group_vars/christopherad_group.yml
+  tasks:
+  - name: Create a new Droplet.
+    digital_ocean_droplet:
+      name: christopherad-web
+      oauth_token: "{{ do_token }}"
+      ssh_keys: "{{ ssh_fingerprint }}"
+      size: 1gb
+      region: sfo2
+      image: ubuntu-18-04-x64
+      state: present
+      monitoring: yes
+      tags: christopherad_group
+      wait_timeout: 500
+    register: christopherad_web
+
+  - debug:
+      msg: "ID is {{ christopherad_web.data.droplet.id }}, IP is {{ christopherad_web.data.ip_address }}"

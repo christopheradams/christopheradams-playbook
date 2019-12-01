@@ -11,15 +11,20 @@ Manages personal infrastructure.
     pip install linode_api4
     ```
 
-3. Create a [Linode API token]
+3. Create a [Linode API token] and a [Digital Ocean token]
 
 4. Set environment variables:
 
    ```sh
     export LINODE_ACCESS_TOKEN='mytoken'
+    export DO_API_TOKEN='mytoken'
     export ROOT_PASSWORD='mypassword123'
     export SSH_PUBKEY='/path/to/my_rsa.pub'
+    export SSH_FINGERPRINT='..'
     ```
+
+Note: Only Digital Ocean requires the SSH Fingerprint. Add your SSH public key
+to the Digital Ocean dashboard and it will show you the fingerprint.
 
 ## Instructions
 
@@ -71,5 +76,5 @@ Reboot:
     ansible-playbook -vv -i linode.yml webserver_enable.yml -u root
 
 [Ansible]: https://www.linode.com/docs/applications/configuration-management/getting-started-with-ansible/#install-ansible
+[Digital Ocean token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
 [Linode API token]: https://www.linode.com/docs/platform/api/getting-started-with-the-linode-api/#get-an-access-token
-
