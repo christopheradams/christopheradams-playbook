@@ -17,8 +17,8 @@ Manages personal infrastructure.
 
    ```sh
     export LINODE_ACCESS_TOKEN='mytoken'
-    export LINODE_ROOT_PASSWORD='mypassword123'
-    export LINODE_SSH_PUBKEY='/path/to/my_rsa.pub'
+    export ROOT_PASSWORD='mypassword123'
+    export SSH_PUBKEY='/path/to/my_rsa.pub'
     ```
 
 ## Instructions
