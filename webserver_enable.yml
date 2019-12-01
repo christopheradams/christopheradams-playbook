@@ -3,6 +3,25 @@
   become: true
 
   tasks:
+    - name: Copy nginx configs
+      copy:
+        src: sites-available/
+        dest: /etc/nginx/sites-available
+
+    - name: Enable sites
+      file:
+        src: /etc/nginx/sites-available/cxa.la
+        dest: /etc/nginx/sites-enabled/cxa.la
+        state: link
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+
+    - name: Generate SSL certificates
+      shell: certbot --nginx --cert-name cxa.la -d cxa.la --redirect --non-interactive --agree-tos --email chris@cxa.la
+
     - name: Crontab goaccess
       cron:
         name: "goaccess"
