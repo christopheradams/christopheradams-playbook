@@ -10,9 +10,19 @@
 
     - name: Enable sites
       file:
-        src: /etc/nginx/sites-available/cxa.la
-        dest: /etc/nginx/sites-enabled/cxa.la
+        src: "/etc/nginx/sites-available/{{ item }}"
+        dest: "/etc/nginx/sites-enabled/{{ item }}"
         state: link
+      loop: ['cxa.la', 'stats.cxa.la']
+
+    - name: Set htpasswd
+      htpasswd:
+        path: /etc/nginx/passwdfile
+        name: root
+        password: "{{ htpasswd }}"
+        owner: root
+        group: root
+        mode: 0644
 
     - name: Reload nginx
       service:
@@ -20,10 +30,11 @@
         state: reloaded
 
     - name: Generate SSL certificates
-      shell: certbot --nginx --cert-name cxa.la -d cxa.la --redirect --non-interactive --agree-tos --email chris@cxa.la
+      shell: certbot --nginx --cert-name {{ item }} -d {{ item }} --redirect --non-interactive --agree-tos --email {{ email}}
+      loop: ['cxa.la', 'stats.cxa.la']
 
     - name: Crontab goaccess
       cron:
         name: "goaccess"
         minute: "*/5"
-        job: "/usr/bin/goaccess -f /var/log/nginx/access.log -o /srv/www/cxa.la/stats/index.html"
+        job: /usr/bin/goaccess -f /var/log/nginx/access.log -o /srv/www/cxa.la/stats/index.html --time-format="%H:%M:%S" --date-format="%d/%b/%Y" --log-format="%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\""
