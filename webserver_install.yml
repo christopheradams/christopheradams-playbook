@@ -32,7 +32,7 @@
 
     - name: Install webserver packages
       apt: name={{ item }} state=latest update_cache=yes
-      loop: ['nginx', 'certbot', 'python-certbot-nginx', 'goaccess']
+      loop: ['nginx', 'python-passlib', 'certbot', 'python-certbot-nginx', 'goaccess']
 
     - name: Create server directories
       file:
