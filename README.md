@@ -19,6 +19,7 @@ Manages personal infrastructure.
     export LINODE_ACCESS_TOKEN='mytoken'
     export DO_API_TOKEN='mytoken'
     export ROOT_PASSWORD='mypassword123'
+    export ROOT_HTPASSWD='mypassword123'
     export SSH_PUBKEY='/path/to/my_rsa.pub'
     export SSH_FINGERPRINT='..'
     ```
