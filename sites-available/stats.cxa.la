@@ -1,28 +1,19 @@
 server {
-    listen 80;
-    server_name stats.cxa.la;
-
-    return 301 https://stats.cxa.la$request_uri;
-}
-
-server {
-	listen 443;
-	server_name stats.cxa.la;
+	listen 80;
 
 	root /srv/www/cxa.la/stats;
 	index index.html index.htm;
 
-	location ~ /\.ht {
-		deny all;
-	}
+	server_name stats.cxa.la;
+
+        location / {
+            try_files $uri $uri/ =404;
+            auth_basic "Restricted Content";
+            auth_basic_user_file /etc/nginx/passwdfile;
+        }
 
 	location ~ /\.git {
 	  deny all;
 	}
 
-    location / {
-        try_files $uri $uri/ =404;
-        auth_basic "Restricted Content";
-        auth_basic_user_file /etc/nginx/.htpasswd;
-    }
 }
