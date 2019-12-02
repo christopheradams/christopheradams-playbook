@@ -52,8 +52,3 @@
         dest: "{{ git.base_dir }}/{{ item | urlsplit('path') | basename }}"
         bare: yes
       loop: "{{ git.clone }}"
-
-    - name: Copy nginx configs
-      copy:
-        src: sites-available/
-        dest: /etc/nginx/sites-available
