@@ -21,8 +21,17 @@
         state: present
         chdir: "{{ tmp_dir }}"
 
+    - name: npm install
+      npm:
+        path: "{{ tmp_dir }}"
+
+    - name: webpack build
+      command: webpack
+      args:
+        chdir: "{{ tmp_dir }}"
+
     - name: Jekyll build
-      command: jekyll build -s {{ tmp_dir }} -d {{ www_dir }}
+      command: jekyll build -s {{ tmp_dir }} -d {{ www_dir }} --lsi
 
     - name: Remove tmp
       file:
