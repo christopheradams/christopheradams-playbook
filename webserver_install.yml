@@ -30,6 +30,22 @@
         state: latest
         user_install: no
 
+    - name: Add NodeSource apt key
+      apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
+    - name: Add NodeSource Repository
+      apt_repository:
+        repo: deb https://deb.nodesource.com/node_12.x bionic main
+        state: present
+
+    - name: Install nodejs
+      apt: update_cache=yes name=nodejs state=latest
+
+    - name: Install webpack
+      npm:
+        name: webpack-cli@^3.0.0
+        global: yes
+
     - name: Install webserver packages
       apt: name={{ item }} state=latest update_cache=yes
       loop: ['nginx', 'python-passlib', 'certbot', 'python-certbot-nginx', 'goaccess']
