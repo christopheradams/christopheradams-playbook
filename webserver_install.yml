@@ -41,12 +41,6 @@
     - name: Install nodejs
       apt: update_cache=yes name=nodejs state=latest
 
-    - name: Install webpack
-      npm:
-        name: "{{ item }}"
-        global: yes
-      loop: ['webpack@^4.0.0', 'webpack-cli@^3.0.0']
-
     - name: Install webserver packages
       apt: name={{ item }} state=latest update_cache=yes
       loop: ['nginx', 'python-passlib', 'certbot', 'python-certbot-nginx', 'goaccess']

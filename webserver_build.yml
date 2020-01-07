@@ -25,8 +25,8 @@
       npm:
         path: "{{ tmp_dir }}"
 
-    - name: webpack build
-      command: webpack
+    - name: npm build
+      command: npm run build
       args:
         chdir: "{{ tmp_dir }}"
 
