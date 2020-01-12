@@ -1,0 +1,42 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop:
+        [
+        'apt-transport-https',
+        'ca-certificates',
+        'curl',
+        'software-properties-common',
+        'python3-pip',
+        'virtualenv',
+        'python3-setuptools',
+        'build-essential'
+        ]
+
+    - name: Enable universe repository
+      apt_repository:
+        repo: "deb http://archive.ubuntu.com/ubuntu/ bionic universe"
+
+    - name: Install user packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop:
+        [
+        'deja-dup',
+        'duplicity',
+        'git',
+        'gnome-tweak-tool',
+        'python-gi',
+        'vim'
+        ]
+
+    - name: Add Emacs repository
+      apt_repository:
+        repo: ppa:kelleyk/emacs
+
+    - name: Install Emacs
+      apt: update_cache=yes name=emacs26 state=latest
+
+

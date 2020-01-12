@@ -27,7 +27,7 @@ Manages personal infrastructure.
 Note: Only Digital Ocean requires the SSH Fingerprint. Add your SSH public key
 to the Digital Ocean dashboard and it will show you the fingerprint.
 
-## Instructions
+## Webserver Instructions
 
 ### Create webserver
 
@@ -75,6 +75,14 @@ Reboot:
 ### Enable website
 
     ansible-playbook -vv -i linode.yml webserver_enable.yml -u root
+
+## Desktop instructions
+
+### Install Desktop
+
+    sudo apt install -y ansible python-pip
+    pip install linode_api4
+    sudo ansible-playbook -i localhost desktop_install.yml -vv
 
 [Ansible]: https://www.linode.com/docs/applications/configuration-management/getting-started-with-ansible/#install-ansible
 [Digital Ocean token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
