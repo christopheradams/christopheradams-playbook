@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  vars:
+    font_path: ~/.local/share/fonts/
+
+  tasks:
+    - name: Ensure fonts directory exists
+      file:
+        path: "{{ font_path }}"
+        state: directory
+
+    - name: Download Input Fonts
+      get_url:
+        url: "https://input.fontbureau.com/build/?fontSelection=fourStyleFamily&regular=InputMonoNarrow-Regular&italic=InputMonoNarrow-Italic&bold=InputMonoNarrow-Bold&boldItalic=InputMonoNarrow-BoldItalic&a=0&g=ss&i=serif&l=serif&zero=slash&asterisk=height&braces=0&preset=default&line-height=1.2&accept=I+do&email="
+        dest: /tmp
+
+    - name: Unzip Input Fonts
+      unarchive:
+        src: /tmp/Input-Font.zip
+        dest: /tmp
+
+    - name: Install Input Fonts
+      copy:
+        src: /tmp/Input_Fonts/Input
+        dest: "{{ font_path }}"
+
+    - name: Build font information cache
+      command: fc-cache
+
