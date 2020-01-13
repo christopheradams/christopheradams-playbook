@@ -29,6 +29,7 @@
         'git',
         'gnome-tweak-tool',
         'openssh-server',
+        'silversearcher-ag',
         'python-gi',
         'vim'
         ]
