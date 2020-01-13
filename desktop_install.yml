@@ -40,4 +40,21 @@
     - name: Install Emacs
       apt: update_cache=yes name=emacs26 state=latest
 
+    - name: Add Xmonad repository
+      apt_repository:
+        repo: ppa:gekkio/xmonad
 
+    - name: Install XMonad
+      apt: update_cache=yes name=gnome-session-xmonad state=latest
+      apt: name={{ item }} state=latest update_cache=yes
+      loop:
+        [
+        'dmenu',
+        'gnome-session-xmonad',
+        'libx11-dev',
+        'libxext-dev',
+        'libxinerama-dev',
+        'libxrandr-dev',
+        'libxss-dev',
+        'xmobar'
+        ]
