@@ -28,6 +28,7 @@
         'duplicity',
         'git',
         'gnome-tweak-tool',
+        'openssh-server',
         'python-gi',
         'vim'
         ]
