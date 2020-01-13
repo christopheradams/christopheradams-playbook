@@ -27,3 +27,8 @@
     - name: Build font information cache
       command: fc-cache
 
+    - name: Set Desktop font
+      command: gsettings set org.gnome.desktop.interface font-name 'Ubuntu 10'
+
+    - name: Set Desktop monospace fonts
+      command: gsettings set org.gnome.desktop.interface monospace-font-name 'Input 9'
