@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
+  gather_facts: no
+  connection: local
+  become: yes
 
   tasks:
     - name: Install required system packages
