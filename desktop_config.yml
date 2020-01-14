@@ -21,3 +21,6 @@
 
     - name: Install base16-grayscale-light
       command: ~/.config/base16-gnome-terminal/color-scripts/base16-grayscale-light.sh
+
+    - name: Customize gnome-terminal profile
+      command: scripts/customize_gnome_terminal_profile.sh 'Base 16 Grayscale Light'
