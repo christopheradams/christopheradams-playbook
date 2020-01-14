@@ -64,3 +64,14 @@
         'libxss-dev',
         'xmobar'
         ]
+
+    - name: Add Google apt key
+      apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
+
+    - name: Add Google Chrome Repository
+      apt_repository:
+        repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+        state: present
+
+    - name: Install Google Chrome
+      apt: update_cache=yes name=google-chrome-stable state=latest
