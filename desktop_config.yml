@@ -2,25 +2,7 @@
 - hosts: localhost
 
   tasks:
-    - name: Ensure config directory exists
-      file:
-        path: ~/.config
-        state: directory
-
-    - name: Reset default gnome-terminal profile
-      command: dconf reset -f /org/gnome/terminal/legacy/profiles:/
-
-      # We have to have an existing profile in order to install base16
-    - name: Create a new profile
-      script: scripts/create_gnome_terminal_profile.sh
-
-    - name: Clone base16-gnome-terminal
-      git:
-        repo: https://github.com/aaron-williamson/base16-gnome-terminal.git
-        dest: ~/.config/base16-gnome-terminal
-
-    - name: Install base16-grayscale-light
-      command: ~/.config/base16-gnome-terminal/color-scripts/base16-grayscale-light.sh
-
-    - name: Customize gnome-terminal profile
-      command: scripts/customize_gnome_terminal_profile.sh 'Base 16 Grayscale Light'
+    - name: Load gnome-terminal profiles
+      shell:
+        cmd: dconf load /org/gnome/terminal/legacy/profiles:/
+        stdin: "{{ lookup('file', 'config/gnome-terminal.conf') }}"
