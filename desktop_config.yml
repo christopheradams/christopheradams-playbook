@@ -9,3 +9,6 @@
 
     # To dump the profiles:
     #   dconf dump /org/gnome/terminal/legacy/profiles:/ > config/gnome-terminal.conf
+
+    # Samba
+    # sudo smbpasswd -a christopher

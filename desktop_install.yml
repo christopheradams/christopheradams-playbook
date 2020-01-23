@@ -34,6 +34,7 @@
         'gnome-tweak-tool',
         'openssh-server',
         'python-gi',
+        'samba',
         'silversearcher-ag',
         'thunderbird',
         'vim'
