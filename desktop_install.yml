@@ -32,6 +32,7 @@
         'duplicity',
         'git',
         'gnome-tweak-tool',
+        'ibus-pinyin',
         'openssh-server',
         'python-gi',
         'samba',
