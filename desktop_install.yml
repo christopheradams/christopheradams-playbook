@@ -15,19 +15,26 @@
         'build-essential',
         'ca-certificates',
         'curl',
+        'fop',
         'libffi-dev',
-        'libncurses-dev',
+        'libgl1-mesa-dev',
+        'libglu1-mesa-dev',
+        'libncurses5-dev',
+        'libpng-dev',
         'libreadline-dev',
         'libssl-dev',
         'libtool',
+        'libwxgtk3.0-dev',
         'libxslt-dev',
         'libyaml-dev',
+        'm4',
         'python3-pip',
         'python3-setuptools',
         'software-properties-common',
         'unixodbc-dev',
         'unzip',
-        'virtualenv'
+        'virtualenv',
+        'xsltproc'
         ]
 
     - name: Enable universe repository
