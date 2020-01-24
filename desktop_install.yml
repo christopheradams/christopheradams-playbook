@@ -10,12 +10,23 @@
       loop:
         [
         'apt-transport-https',
+        'autoconf',
+        'automake',
         'build-essential',
         'ca-certificates',
         'curl',
+        'libffi-dev',
+        'libncurses-dev',
+        'libreadline-dev',
+        'libssl-dev',
+        'libtool',
+        'libxslt-dev',
+        'libyaml-dev',
         'python3-pip',
         'python3-setuptools',
         'software-properties-common',
+        'unixodbc-dev',
+        'unzip',
         'virtualenv'
         ]
 
