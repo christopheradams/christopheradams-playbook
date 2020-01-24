@@ -10,13 +10,13 @@
       loop:
         [
         'apt-transport-https',
+        'build-essential',
         'ca-certificates',
         'curl',
-        'software-properties-common',
         'python3-pip',
-        'virtualenv',
         'python3-setuptools',
-        'build-essential'
+        'software-properties-common',
+        'virtualenv'
         ]
 
     - name: Enable universe repository
