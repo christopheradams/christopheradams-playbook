@@ -78,6 +78,12 @@
         'xmobar'
         ]
 
+    - name: Install asdf
+      become: no
+      git:
+        repo: https://github.com/asdf-vm/asdf.git
+        dest: ~/.asdf
+
     - name: Add Google apt key
       apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
 
