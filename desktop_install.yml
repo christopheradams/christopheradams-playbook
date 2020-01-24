@@ -3,6 +3,9 @@
   gather_facts: no
   connection: local
   become: yes
+  vars:
+    elixir_version: 1.9.4-otp-22
+    erlang_version: 22.2.3
 
   tasks:
     - name: Install required system packages
@@ -90,6 +93,42 @@
       git:
         repo: https://github.com/asdf-vm/asdf.git
         dest: ~/.asdf
+
+    - name: Install asdf Erlang plugin
+      become: no
+      command: ~/.asdf/bin/asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+      args:
+        creates:  ~/.asdf/plugins/erlang
+
+    - name: Install Erlang
+      become: no
+      command: "~/.asdf/bin/asdf install erlang {{erlang_version}}"
+      args:
+        creates:  "~/.asdf/installs/erlang/{{erlang_version}}"
+
+    - name: Set global Erlang
+      become: no
+      command: "~/.asdf/bin/asdf global erlang {{erlang_version}}"
+
+    - name: Install asdf Elixir plugin
+      become: no
+      command: ~/.asdf/bin/asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+      args:
+        creates:  ~/.asdf/plugins/elixir
+
+    - name: Install Elixir
+      become: no
+      command: "~/.asdf/bin/asdf install elixir {{elixir_version}}"
+      args:
+        creates:  "~/.asdf/installs/elixir/{{elixir_version}}"
+
+    - name: Set global Elixir
+      become: no
+      command: "~/.asdf/bin/asdf global elixir {{elixir_version}}"
+
+    - name: asdf reshim
+      become: no
+      command: "~/.asdf/bin/asdf reshim"
 
     - name: Add Google apt key
       apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
