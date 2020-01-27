@@ -19,6 +19,7 @@
         'ca-certificates',
         'curl',
         'fop',
+        'inotify-tools',
         'libffi-dev',
         'libgl1-mesa-dev',
         'libglu1-mesa-dev',
