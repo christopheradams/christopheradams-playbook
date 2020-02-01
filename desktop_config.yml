@@ -1,7 +1,14 @@
 ---
 - hosts: localhost
+  vars:
+    dotfiles_repo: git@github.com:christopheradams/dotfiles.git
 
   tasks:
+    - name: Clone dotfiles
+      git:
+        repo: "{{ dotfiles_repo }}"
+        dest: ~/dotfiles
+
     - name: Load gnome-terminal profiles
       shell:
         cmd: dconf load /org/gnome/terminal/legacy/profiles:/
