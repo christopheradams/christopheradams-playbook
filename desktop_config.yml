@@ -31,7 +31,7 @@
     - name: Load gnome-terminal profiles
       shell:
         cmd: dconf load /org/gnome/terminal/legacy/profiles:/
-        stdin: "{{ lookup('file', 'config/gnome-terminal.conf') }}"
+        stdin: "{{ lookup('file', '~/dotfiles/gnome-terminal/gnome-terminal.conf') }}"
 
     # To dump the profiles:
     #   dconf dump /org/gnome/terminal/legacy/profiles:/ > config/gnome-terminal.conf
