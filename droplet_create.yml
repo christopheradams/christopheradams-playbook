@@ -8,7 +8,7 @@
       name: christopherad-web
       oauth_token: "{{ do_token }}"
       ssh_keys: "{{ ssh_fingerprint }}"
-      size: 1gb
+      size: s-1vcpu-1gb
       region: sfo2
       image: ubuntu-18-04-x64
       state: present
