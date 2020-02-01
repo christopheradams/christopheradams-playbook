@@ -55,6 +55,7 @@
         'git',
         'gnome-tweak-tool',
         'ibus-pinyin',
+        'jq',
         'openssh-server',
         'python-gi',
         'samba',
