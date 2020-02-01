@@ -9,6 +9,25 @@
         repo: "{{ dotfiles_repo }}"
         dest: ~/dotfiles
 
+    - name: Link dotfiles
+      file:
+        src: "~/dotfiles/{{ item.src }}"
+        path: "~/{{ item.dest }}"
+        state: link
+      loop:
+        - { src: dash/bashrc, dest: .bashrc }
+        - { src: emacs/emacs.d, dest: .emacs.d }
+        - { src: ruby/.gemrc, dest: .gemrc }
+        - { src: git/gitconfig, dest: .gitconfig }
+        - { src: git/gitignore, dest: .gitignore }
+        - { src: ruby/irbrc, dest: .irbrc }
+        - { src: dash/profile, dest: .profile }
+        - { src: vim/vim, dest: .vim }
+        - { src: vim/vimrc-base16-grayscale-light, dest: .vimrc }
+        - { src: xmobar/.xmobarrc, dest: .xmobarrc }
+        - { src: xmonad, dest: .xmonad }
+        - { src: X/xprofile, dest: .xprofile }
+
     - name: Load gnome-terminal profiles
       shell:
         cmd: dconf load /org/gnome/terminal/legacy/profiles:/
