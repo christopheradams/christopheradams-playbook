@@ -11,35 +11,33 @@
     - name: Install required system packages
       apt: name={{ item }} state=latest update_cache=yes
       loop:
-        [
-        'apt-transport-https',
-        'autoconf',
-        'automake',
-        'build-essential',
-        'ca-certificates',
-        'curl',
-        'fop',
-        'inotify-tools',
-        'libffi-dev',
-        'libgl1-mesa-dev',
-        'libglu1-mesa-dev',
-        'libncurses5-dev',
-        'libpng-dev',
-        'libreadline-dev',
-        'libssl-dev',
-        'libtool',
-        'libwxgtk3.0-dev',
-        'libxslt-dev',
-        'libyaml-dev',
-        'm4',
-        'python3-pip',
-        'python3-setuptools',
-        'software-properties-common',
-        'unixodbc-dev',
-        'unzip',
-        'virtualenv',
-        'xsltproc'
-        ]
+        - apt-transport-https
+        - autoconf
+        - automake
+        - build-essential
+        - ca-certificates
+        - curl
+        - fop
+        - inotify-tools
+        - libffi-dev
+        - libgl1-mesa-dev
+        - libglu1-mesa-dev
+        - libncurses5-dev
+        - libpng-dev
+        - libreadline-dev
+        - libssl-dev
+        - libtool
+        - libwxgtk3.0-dev
+        - libxslt-dev
+        - libyaml-dev
+        - m4
+        - python3-pip
+        - python3-setuptools
+        - software-properties-common
+        - unixodbc-dev
+        - unzip
+        - virtualenv
+        - xsltproc
 
     - name: Enable universe repository
       apt_repository:
@@ -48,21 +46,19 @@
     - name: Install user packages
       apt: name={{ item }} state=latest update_cache=yes
       loop:
-        [
-        'arc-theme',
-        'deja-dup',
-        'duplicity',
-        'git',
-        'gnome-tweak-tool',
-        'ibus-pinyin',
-        'jq',
-        'openssh-server',
-        'python-gi',
-        'samba',
-        'silversearcher-ag',
-        'thunderbird',
-        'vim'
-        ]
+        - arc-theme
+        - deja-dup
+        - duplicity
+        - git
+        - gnome-tweak-tool
+        - ibus-pinyin
+        - jq
+        - openssh-server
+        - python-gi
+        - samba
+        - silversearcher-ag
+        - thunderbird
+        - vim
 
     - name: Add Emacs repository
       apt_repository:
@@ -79,16 +75,14 @@
       apt: update_cache=yes name=gnome-session-xmonad state=latest
       apt: name={{ item }} state=latest update_cache=yes
       loop:
-        [
-        'dmenu',
-        'gnome-session-xmonad',
-        'libx11-dev',
-        'libxext-dev',
-        'libxinerama-dev',
-        'libxrandr-dev',
-        'libxss-dev',
-        'xmobar'
-        ]
+        - dmenu
+        - gnome-session-xmonad
+        - libx11-dev
+        - libxext-dev
+        - libxinerama-dev
+        - libxrandr-dev
+        - libxss-dev
+        - xmobar
 
     - name: Install asdf
       become: no
