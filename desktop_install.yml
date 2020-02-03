@@ -53,6 +53,7 @@
         - gnome-tweak-tool
         - ibus-pinyin
         - jq
+        - mplayer
         - openssh-server
         - python-gi
         - samba
