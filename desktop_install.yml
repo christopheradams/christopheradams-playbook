@@ -85,6 +85,16 @@
         - libxss-dev
         - xmobar
 
+    - name: Install Gnome + Xmonad custom desktop
+      copy:
+        src: config/gnome-xmonad-custom.desktop
+        dest: /usr/share/xsessions
+
+    - name: Install Gnome + Xmonad custom session
+      copy:
+        src: config/gnome-xmonad-custom.session
+        dest: /usr/share/gnome-session/sessions
+
     - name: Install asdf
       become: no
       git:
