@@ -49,6 +49,7 @@
         - arc-theme
         - deja-dup
         - duplicity
+        - ffmpeg
         - git
         - gnome-tweak-tool
         - ibus-pinyin
@@ -60,6 +61,7 @@
         - silversearcher-ag
         - thunderbird
         - vim
+        - vlc
 
     - name: Add Emacs repository
       apt_repository:
