@@ -4,7 +4,7 @@
   connection: local
   become: yes
   vars:
-    apps_path: ~/Apps
+    apps_path: ~/bin
 
   tasks:
     - name: Ensure Apps directory exists
