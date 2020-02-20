@@ -28,6 +28,14 @@
         - { src: xmonad, dest: .xmonad }
         - { src: X/xprofile, dest: .xprofile }
 
+    - name: Creat npm global directory
+      file:
+        path: ~/.npm-global
+        state: directory
+
+    - name: Configure npm global installs
+      command: npm config set prefix '~/.npm-global'
+
     - name: Load gnome-terminal profiles
       shell:
         cmd: dconf load /org/gnome/terminal/legacy/profiles:/
