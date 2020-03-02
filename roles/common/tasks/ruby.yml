@@ -1,0 +1,16 @@
+- name: Install Ruby packages
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - ruby
+    - ruby-dev
+    - libxslt-dev
+    - libxml2-dev
+
+- name: Update gem
+  command: gem update --system
+
+- name: Install bundler
+  gem:
+    name: bundler
+    state: latest
+    user_install: no
