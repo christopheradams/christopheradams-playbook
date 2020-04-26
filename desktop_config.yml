@@ -36,6 +36,10 @@
     - name: Configure npm global installs
       command: npm config set prefix '~/.npm-global'
 
+    - name: Set xkb-options
+      shell:
+        cmd: dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape', 'compose:ralt']"
+
     - name: Load gnome-terminal profiles
       shell:
         cmd: dconf load /org/gnome/terminal/legacy/profiles:/
