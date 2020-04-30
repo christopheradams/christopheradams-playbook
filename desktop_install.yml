@@ -51,6 +51,7 @@
         - arc-theme
         - deja-dup
         - duplicity
+        - libimage-exiftool-perl
         - ffmpeg
         - git
         - gnome-tweak-tool
