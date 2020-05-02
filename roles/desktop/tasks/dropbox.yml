@@ -1,0 +1,30 @@
+- name: Download Dropbox
+  get_url:
+    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
+    dest: /tmp/dropbox.tar.gz
+
+- name: Unarchive Dropbox
+  unarchive:
+    src: /tmp/dropbox.tar.gz
+    dest: ~/
+
+- name: Ensure local bin directory exists
+  file:
+    path: "{{ dropbox_cmd | dirname }}"
+    state: directory
+
+- name: Download dropbox.py
+  get_url:
+    url: "https://www.dropbox.com/download?dl=packages/dropbox.py"
+    dest: "{{ dropbox_cmd }}"
+
+- name: Make dropbox CLI executable
+  file:
+    path: "{{ dropbox_cmd }}"
+    mode: u+x
+
+- name: Autostart dropbox
+  command: "{{ dropbox_cmd }} autostart y"
+
+- debug:
+    msg: Run '~/.dropbox-dist/dropboxd' to finish setting up Dropbox.
