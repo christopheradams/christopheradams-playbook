@@ -1,0 +1,13 @@
+- name: Install desktop packages
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - arc-theme
+    - deja-dup
+    - duplicity
+    - gnome-tweak-tool
+    - ibus-pinyin
+    - mplayer
+    - python-gi
+    - samba
+    - thunderbird
+    - vlc

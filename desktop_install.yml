@@ -6,48 +6,11 @@
   roles:
     - common
     - development
+    - desktop
   vars:
     ubuntu_version: bionic
 
   tasks:
-    - name: Install required system packages
-      apt: name={{ item }} state=latest update_cache=yes
-      loop:
-        - apt-transport-https
-        - build-essential
-        - ca-certificates
-        - curl
-        - inotify-tools
-        - python3-pip
-        - python3-setuptools
-        - software-properties-common
-        - virtualenv
-
-    - name: Enable universe repository
-      apt_repository:
-        repo: "deb http://archive.ubuntu.com/ubuntu/ bionic universe"
-
-    - name: Install user packages
-      apt: name={{ item }} state=latest update_cache=yes
-      loop:
-        - arc-theme
-        - deja-dup
-        - duplicity
-        - libimage-exiftool-perl
-        - ffmpeg
-        - git
-        - gnome-tweak-tool
-        - ibus-pinyin
-        - jq
-        - mplayer
-        - openssh-server
-        - python-gi
-        - samba
-        - silversearcher-ag
-        - thunderbird
-        - vim
-        - vlc
-
     - name: Add Emacs repository
       apt_repository:
         repo: ppa:kelleyk/emacs
@@ -87,7 +50,7 @@
 
     - name: Add NodeSource Repository
       apt_repository:
-        repo: deb https://deb.nodesource.com/node_12.x bionic main
+        repo: deb https://deb.nodesource.com/node_12.x {{ubuntu_version}} main
         state: present
 
     - name: Install nodejs
