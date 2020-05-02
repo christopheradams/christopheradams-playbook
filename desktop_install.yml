@@ -45,28 +45,6 @@
         src: config/gnome-xmonad-custom.session
         dest: /usr/share/gnome-session/sessions
 
-    - name: Add NodeSource apt key
-      apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-
-    - name: Add NodeSource Repository
-      apt_repository:
-        repo: deb https://deb.nodesource.com/node_12.x {{ubuntu_version}} main
-        state: present
-
-    - name: Install nodejs
-      apt: update_cache=yes name=nodejs state=latest
-
-    - name: Add Yarn apt key
-      apt_key: url=https://dl.yarnpkg.com/debian/pubkey.gpg
-
-    - name: Add Yarn Repository
-      apt_repository:
-        repo: deb https://dl.yarnpkg.com/debian/ stable main
-        state: present
-
-    - name: Install yarn
-      apt: update_cache=yes name=yarn state=latest
-
     - name: Add Google apt key
       apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
 
