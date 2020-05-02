@@ -5,11 +5,9 @@
   become: yes
   roles:
     - common
-    - role: elixir
-      vars:
-        elixir_version: 1.10.3
-        erlang_version: 22.3.3
-        ubuntu_version: bionic
+    - development
+  vars:
+    ubuntu_version: bionic
 
   tasks:
     - name: Install required system packages
