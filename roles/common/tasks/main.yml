@@ -1,5 +1,2 @@
 - name: Import Ruby
   import_tasks: ruby.yml
-
-- name: Import asdf
-  import_tasks: asdf.yml

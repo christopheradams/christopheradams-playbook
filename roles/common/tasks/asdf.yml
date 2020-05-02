@@ -1,5 +1,0 @@
-- name: Install asdf
-  become: no
-  git:
-    repo: https://github.com/asdf-vm/asdf.git
-    dest: ~/.asdf
