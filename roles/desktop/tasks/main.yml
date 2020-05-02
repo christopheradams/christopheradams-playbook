@@ -28,6 +28,10 @@
   become: no
   import_tasks: fonts.yml
 
+- name: Import Blockchain
+  become: no
+  import_tasks: blockchain.yml
+
 - name: Import Dropbox
   become: no
   import_tasks: dropbox.yml

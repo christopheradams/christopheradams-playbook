@@ -1,2 +1,3 @@
+apps_path: ~/bin
 dropbox_cmd: ~/.local/bin/dropbox
 font_path: ~/.local/share/fonts/

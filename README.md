@@ -84,7 +84,6 @@ Reboot:
     pip install linode_api4
     ansible-playbook -i localhost desktop_install.yml -vv --ask-become-pass
     ansible-playbook -i localhost desktop_config.yml -vv
-    ansible-playbook -i localhost desktop_blockchain.yml -vv
 
 [Ansible]: https://www.linode.com/docs/applications/configuration-management/getting-started-with-ansible/#install-ansible
 [Digital Ocean token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
