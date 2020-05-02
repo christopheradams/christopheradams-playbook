@@ -12,6 +12,12 @@
     - thunderbird
     - vlc
 
+- name: Import config
+  become: no
+  import_tasks: config.yml
+  tags:
+    - config
+
 - name: Import Xmonad
   import_tasks: xmonad.yml
 
