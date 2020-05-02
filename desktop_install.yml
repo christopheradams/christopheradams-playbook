@@ -5,9 +5,11 @@
   become: yes
   roles:
     - common
-  vars:
-    elixir_version: 1.9.4-otp-22
-    erlang_version: 22.2.3
+    - role: elixir
+      vars:
+        elixir_version: 1.10.3
+        erlang_version: 22.3.3
+        ubuntu_version: bionic
 
   tasks:
     - name: Install required system packages
@@ -19,27 +21,19 @@
         - build-essential
         - ca-certificates
         - curl
-        - fop
         - inotify-tools
         - libffi-dev
-        - libgl1-mesa-dev
-        - libglu1-mesa-dev
         - libncurses5-dev
-        - libpng-dev
         - libreadline-dev
         - libssl-dev
         - libtool
-        - libwxgtk3.0-dev
         - libxslt-dev
         - libyaml-dev
-        - m4
         - python3-pip
         - python3-setuptools
         - software-properties-common
-        - unixodbc-dev
         - unzip
         - virtualenv
-        - xsltproc
 
     - name: Enable universe repository
       apt_repository:
@@ -99,42 +93,6 @@
       copy:
         src: config/gnome-xmonad-custom.session
         dest: /usr/share/gnome-session/sessions
-
-    - name: Install asdf Erlang plugin
-      become: no
-      command: ~/.asdf/bin/asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
-      args:
-        creates:  ~/.asdf/plugins/erlang
-
-    - name: Install Erlang
-      become: no
-      command: "~/.asdf/bin/asdf install erlang {{erlang_version}}"
-      args:
-        creates:  "~/.asdf/installs/erlang/{{erlang_version}}"
-
-    - name: Set global Erlang
-      become: no
-      command: "~/.asdf/bin/asdf global erlang {{erlang_version}}"
-
-    - name: Install asdf Elixir plugin
-      become: no
-      command: ~/.asdf/bin/asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-      args:
-        creates:  ~/.asdf/plugins/elixir
-
-    - name: Install Elixir
-      become: no
-      command: "~/.asdf/bin/asdf install elixir {{elixir_version}}"
-      args:
-        creates:  "~/.asdf/installs/elixir/{{elixir_version}}"
-
-    - name: Set global Elixir
-      become: no
-      command: "~/.asdf/bin/asdf global elixir {{elixir_version}}"
-
-    - name: asdf reshim
-      become: no
-      command: "~/.asdf/bin/asdf reshim"
 
     - name: Add NodeSource apt key
       apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
