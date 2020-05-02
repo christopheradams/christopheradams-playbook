@@ -5,6 +5,7 @@
   become: yes
   roles:
     - common
+    - node
     - development
     - desktop
   vars:

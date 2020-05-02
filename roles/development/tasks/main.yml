@@ -3,11 +3,6 @@
   tags:
     - ruby
 
-- name: Import Node
-  import_tasks: node.yml
-  tags:
-    - node
-
 - name: Import Erlang
   import_tasks: erlang.yml
   tags:
