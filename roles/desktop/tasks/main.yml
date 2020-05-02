@@ -11,3 +11,15 @@
     - samba
     - thunderbird
     - vlc
+
+- name: Import Xmonad
+  import_tasks: xmonad.yml
+
+- name: Import Emacs
+  import_tasks: emacs.yml
+
+- name: Import Chrome
+  import_tasks: chrome.yml
+
+- name: Import Brave
+  import_tasks: brave.yml

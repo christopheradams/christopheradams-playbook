@@ -1,0 +1,6 @@
+- name: Add Emacs repository
+  apt_repository:
+    repo: ppa:kelleyk/emacs
+
+- name: Install Emacs
+  apt: update_cache=yes name=emacs26 state=latest

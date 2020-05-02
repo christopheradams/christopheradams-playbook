@@ -1,0 +1,28 @@
+- name: Add Xmonad repository
+  apt_repository:
+    repo: ppa:gekkio/xmonad
+
+- name: Install XMonad
+  apt: update_cache=yes name=gnome-session-xmonad state=latest
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - dmenu
+    - gnome-session-xmonad
+    - libx11-dev
+    - libxext-dev
+    - libxinerama-dev
+    - libxrandr-dev
+    - libxss-dev
+    - xmobar
+
+- name: Install Gnome + Xmonad custom desktop
+  copy:
+    src: config/gnome-xmonad-custom.desktop
+    dest: /usr/share/xsessions
+  tags:
+    - xmonad
+
+- name: Install Gnome + Xmonad custom session
+  copy:
+    src: config/gnome-xmonad-custom.session
+    dest: /usr/share/gnome-session/sessions
