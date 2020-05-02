@@ -16,23 +16,13 @@
       apt: name={{ item }} state=latest update_cache=yes
       loop:
         - apt-transport-https
-        - autoconf
-        - automake
         - build-essential
         - ca-certificates
         - curl
         - inotify-tools
-        - libffi-dev
-        - libncurses5-dev
-        - libreadline-dev
-        - libssl-dev
-        - libtool
-        - libxslt-dev
-        - libyaml-dev
         - python3-pip
         - python3-setuptools
         - software-properties-common
-        - unzip
         - virtualenv
 
     - name: Enable universe repository
