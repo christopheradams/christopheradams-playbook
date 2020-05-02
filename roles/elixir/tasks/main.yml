@@ -1,0 +1,5 @@
+- name: Import Erlang
+  import_tasks: erlang.yml
+
+- name: Import Elixir
+  import_tasks: elixir.yml

@@ -1,0 +1,21 @@
+- name: Download Elixir
+  get_url:
+    url: "https://packages.erlang-solutions.com/erlang/debian/pool/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_version}}_all.deb"
+    dest: /tmp/
+
+- name: Install Elixir
+  apt:
+    deb: "/tmp/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_version}}_all.deb"
+
+- name: Install hex
+  become: no
+  command: mix local.hex --force
+
+- name: Install rebar
+  become: no
+  command: mix local.rebar --force
+
+- name: Install Phoenix
+  become: no
+  command: mix archive.install hex phx_new 1.5.1
+
