@@ -83,7 +83,6 @@ Reboot:
     sudo apt install -y ansible python-pip
     pip install linode_api4
     ansible-playbook -i localhost desktop_install.yml -vv --ask-become-pass
-    ansible-playbook -i localhost desktop_fonts.yml -vv
     ansible-playbook -i localhost desktop_config.yml -vv
     ansible-playbook -i localhost desktop_blockchain.yml -vv
 

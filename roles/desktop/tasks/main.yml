@@ -24,6 +24,10 @@
 - name: Import Brave
   import_tasks: brave.yml
 
+- name: Import Fonts
+  become: no
+  import_tasks: fonts.yml
+
 - name: Import Dropbox
   become: no
   import_tasks: dropbox.yml
