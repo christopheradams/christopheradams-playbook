@@ -1,5 +1,10 @@
 - name: Import Erlang
   import_tasks: erlang.yml
+  tags:
+    - elixir
+    - erlang
 
 - name: Import Elixir
   import_tasks: elixir.yml
+  tags:
+    - elixir
