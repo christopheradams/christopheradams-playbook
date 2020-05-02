@@ -1,3 +1,8 @@
+- name: Import Ruby
+  import_tasks: ruby.yml
+  tags:
+    - ruby
+
 - name: Import Erlang
   import_tasks: erlang.yml
   tags:
