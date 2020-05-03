@@ -19,8 +19,6 @@
   copy:
     src: config/gnome-xmonad-custom.desktop
     dest: /usr/share/xsessions
-  tags:
-    - xmonad
 
 - name: Install Gnome + Xmonad custom session
   copy:
