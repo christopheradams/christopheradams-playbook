@@ -4,6 +4,8 @@
 
 - name: Install XMonad
   apt: update_cache=yes name=gnome-session-xmonad state=latest
+
+- name: Install XMonad packages
   apt: name={{ item }} state=latest update_cache=yes
   loop:
     - dmenu
