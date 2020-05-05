@@ -1,11 +1,6 @@
-- name: Download Elixir
-  get_url:
-    url: "https://packages.erlang-solutions.com/erlang/debian/pool/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_version}}_all.deb"
-    dest: /tmp/
-
 - name: Install Elixir
   apt:
-    deb: "/tmp/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_version}}_all.deb"
+    deb: "https://packages.erlang-solutions.com/erlang/debian/pool/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_version}}_all.deb"
 
 - name: Install hex
   become: no
