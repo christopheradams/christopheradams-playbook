@@ -7,7 +7,7 @@
     - common
     - ruby
     - node
-    - development
+    - elixir
     - desktop
   vars:
     ubuntu_version: bionic
