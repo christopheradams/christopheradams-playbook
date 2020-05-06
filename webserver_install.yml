@@ -4,47 +4,15 @@
   vars_files:
       - ./group_vars/christopherad_group.yml
   become: true
+  roles:
+    - common
+    - node
+    - ruby
+    - webserver
+  vars:
+    ubuntu_version: bionic
 
   tasks:
-    - name: Install aptitude using apt
-      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
-
-    - name: Install required system packages
-      apt: name={{ item }} state=latest update_cache=yes
-      loop: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools', 'build-essential']
-
-    - name: Enable universe repository
-      apt_repository:
-        repo: "deb http://archive.ubuntu.com/ubuntu/ bionic universe"
-
-    - name: Install Ruby packages
-      apt: name={{ item }} state=latest update_cache=yes
-      loop: ['ruby', 'ruby-dev', 'libxslt-dev', 'libxml2-dev']
-
-    - name: Update gem
-      command: gem update --system
-
-    - name: Install bundler
-      gem:
-        name: bundler
-        state: latest
-        user_install: no
-
-    - name: Add NodeSource apt key
-      apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-
-    - name: Add NodeSource Repository
-      apt_repository:
-        repo: deb https://deb.nodesource.com/node_12.x bionic main
-        state: present
-
-    - name: Install nodejs
-      apt: update_cache=yes name=nodejs state=latest
-
-    - name: Install webserver packages
-      apt: name={{ item }} state=latest update_cache=yes
-      loop: ['nginx', 'python-passlib', 'certbot', 'python-certbot-nginx', 'goaccess']
-
     - name: Create server directories
       file:
         path: "{{ item }}"
