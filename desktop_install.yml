@@ -5,6 +5,7 @@
   become: yes
   roles:
     - common
+    - ruby
     - node
     - development
     - desktop
