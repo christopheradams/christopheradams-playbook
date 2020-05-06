@@ -1,0 +1,7 @@
+---
+gitolite:
+  admin: "admin"
+  admin_key: "~/.ssh/id_rsa.pub"
+  user: "git"
+  group: "git"
+  homedir: "/home/git"

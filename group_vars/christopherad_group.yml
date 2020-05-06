@@ -15,3 +15,5 @@ git:
     - "https://github.com/christopheradams/hello-wwworld.git"
   init:
     - "Org.git"
+gitolite:
+  admin_key: "{{ ssh_keys }}"

@@ -8,6 +8,7 @@
     - common
     - node
     - ruby
+    - git
     - webserver
   vars:
     ubuntu_version: bionic
