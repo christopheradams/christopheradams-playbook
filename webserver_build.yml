@@ -2,13 +2,9 @@
 - hosts: christopherad-web
   become: true
   vars:
-    git_repo: "{{ git.base_dir }}/{{ www_repo }}.git"
-    tmp_dir: "/tmp/{{ www_repo }}"
-    www_dir: "{{ www.base_dir }}/{{ www_repo }}/public"
-    hello_repo: "{{ git.base_dir }}/hello-wwworld.git"
-    cxa_tmp_dir: "/tmp/cxa.la.git"
-    cxa_dir: "{{ www.base_dir }}/cxa.la/public"
-    stats_dir: "{{ www.base_dir }}/cxa.la/stats"
+    git_repo: https://github.com/christopheradams/christopheradams.io.git
+    tmp_dir: /tmp/christopheradms.io
+    www_dir: /srv/www/christopheradams.io
 
   tasks:
     - name: Clone website to tmp
@@ -37,25 +33,3 @@
       file:
         path: "{{ tmp_dir }}"
         state: absent
-
-    - name: Remove cxa.la
-      file:
-        path: "{{ cxa_dir }}"
-        state: absent
-
-    - name: Clone hello-wwworld
-      git:
-        repo: "{{ hello_repo }}"
-        dest: "{{ cxa_dir }}"
-        depth: 1
-        separate_git_dir: "{{ cxa_tmp_dir }}"
-
-    - name: Remove tmp
-      file:
-        path: "{{ cxa_tmp_dir }}"
-        state: absent
-
-    - name: Add stats dir
-      file:
-        path: "{{ stats_dir }}"
-        state: directory

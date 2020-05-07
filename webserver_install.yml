@@ -10,19 +10,6 @@
     - ruby
     - git
     - webserver
+    - websites
   vars:
     ubuntu_version: bionic
-
-  tasks:
-    - name: Create server directories
-      file:
-        path: "{{ item }}"
-        state: directory
-      loop: ["{{ www.base_dir }}", "{{ git.base_dir }}"]
-
-    - name: Clone repositories
-      git:
-        repo: "{{ item }}"
-        dest: "{{ git.base_dir }}/{{ item | urlsplit('path') | basename }}"
-        bare: yes
-      loop: "{{ git.clone }}"

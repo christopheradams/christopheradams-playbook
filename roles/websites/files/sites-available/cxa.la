@@ -1,7 +1,7 @@
 server {
 	listen 80;
 
-	root /srv/www/cxa.la/public;
+	root /srv/www/html;
 	index index.html index.htm;
 
 	server_name cxa.la;

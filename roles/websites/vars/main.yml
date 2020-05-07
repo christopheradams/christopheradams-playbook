@@ -1,0 +1,10 @@
+---
+www:
+  - html
+  - christopheradams.io
+  - stats.cxa.la
+certs:
+  - cxa.la
+  - stats.cxa.la
+www_certs:
+  - christopheradams.io

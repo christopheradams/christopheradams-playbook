@@ -2,7 +2,7 @@ server {
     listen 80;
     server_name christopheradams.io www.christopheradams.io;
 
-    root /srv/www/christopheradams.io/public;
+    root /srv/www/christopheradams.io;
     index index.html index.htm;
 
     location ~ /\.ht {

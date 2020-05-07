@@ -72,10 +72,6 @@ Reboot:
 
     ansible-playbook -vv -i linode.yml webserver_build.yml -u root
 
-### Enable website
-
-    ansible-playbook -vv -i linode.yml webserver_enable.yml -u root
-
 ## Desktop instructions
 
 ### Install Desktop

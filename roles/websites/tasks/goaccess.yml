@@ -1,0 +1,6 @@
+---
+- name: Crontab goaccess
+  cron:
+    name: "goaccess"
+    minute: "*/5"
+    job: /usr/bin/goaccess -f /var/log/nginx/access.log -o /srv/www/stats.cxa.la/index.html --time-format="\%H:\%M:\%S" --date-format="\%d/\%b/\%Y" --log-format="\%h \%^[\%d:\%t \%^] \"\%r\" \%s \%b \"\%R\" \"\%u\""

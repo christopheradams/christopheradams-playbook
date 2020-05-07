@@ -1,0 +1,24 @@
+---
+- name: Copy nginx configs
+  copy:
+    src: sites-available/
+    dest: /etc/nginx/sites-available
+
+- name: Enable sites
+  file:
+    src: "/etc/nginx/sites-available"
+    dest: "/etc/nginx/sites-enabled"
+    state: link
+    force: true
+
+- name: Create www directories
+  file:
+    path: "/srv/www/{{ item }}"
+    state: directory
+  loop: "{{ www }}"
+
+- name: Copy html
+  copy:
+    src: html/index.html
+    dest: "/srv/www/{{ item }}"
+  loop: "{{ www }}"
