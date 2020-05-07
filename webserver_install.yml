@@ -20,12 +20,6 @@
         state: directory
       loop: ["{{ www.base_dir }}", "{{ git.base_dir }}"]
 
-    - name: Init repositories
-      command: git init --bare {{item}}
-      loop: "{{ git.init }}"
-      args:
-        chdir: "{{ git.base_dir }}"
-
     - name: Clone repositories
       git:
         repo: "{{ item }}"
