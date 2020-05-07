@@ -1,3 +1,4 @@
+---
 - name: Add NodeSource apt key
   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
 

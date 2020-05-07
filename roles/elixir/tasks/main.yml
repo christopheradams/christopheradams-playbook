@@ -1,3 +1,4 @@
+---
 - name: Import Erlang
   import_tasks: erlang.yml
   tags:

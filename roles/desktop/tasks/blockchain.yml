@@ -1,3 +1,4 @@
+---
 - name: Ensure Apps directory exists
   file:
     path: "{{ apps_path }}"

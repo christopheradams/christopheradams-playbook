@@ -1,3 +1,4 @@
+---
 - name: Add Brave Browser apt key
   apt_key:
     url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc

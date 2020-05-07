@@ -1,3 +1,4 @@
+---
 - name: Add Xmonad repository
   apt_repository:
     repo: ppa:gekkio/xmonad

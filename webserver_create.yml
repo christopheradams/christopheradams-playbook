@@ -1,3 +1,4 @@
+---
 - name: Create Webserver
   hosts: localhost
   vars_files:

@@ -1,3 +1,4 @@
+---
 - name: Ensure fonts directory exists
   file:
     path: "{{ font_path }}"
