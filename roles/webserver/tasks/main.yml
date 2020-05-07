@@ -6,3 +6,23 @@
     - nginx
     - python-certbot-nginx
     - python-passlib
+
+- name: Create html directory
+  file:
+    path: "{{ html_dir }}"
+    state: directory
+
+- name: Copy html
+  copy:
+    src: index.html
+    dest: "{{ html_dir }}"
+
+- name: Copy nginx default
+  copy:
+    src: default
+    dest: /etc/nginx/sites-available
+
+- name: Reload nginx
+  service:
+    name: nginx
+    state: reloaded
