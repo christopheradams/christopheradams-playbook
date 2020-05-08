@@ -10,6 +10,7 @@
     dest: "/etc/nginx/sites-enabled"
     state: link
     force: true
+  notify: Restart Nginx
 
 - name: Create www directories
   file:

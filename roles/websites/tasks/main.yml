@@ -5,11 +5,6 @@
 - name: Import htpasswd
   import_tasks: htpasswd.yml
 
-- name: Reload nginx
-  service:
-    name: nginx
-    state: reloaded
-
 - name: Import certbot
   import_tasks: certbot.yml
   tags: certbot
