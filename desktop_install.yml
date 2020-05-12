@@ -8,6 +8,7 @@
     - ruby
     - node
     - elixir
+    - haskell
     - desktop
   vars:
     ubuntu_version: bionic

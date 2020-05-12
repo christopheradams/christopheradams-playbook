@@ -1,0 +1,19 @@
+---
+- name: Enable hvr/ghc PPA
+  apt_repository:
+    repo: ppa:hvr/ghc
+
+- name: Install ghc and cabal
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - "ghc-{{ ghc_version }}"
+    - "cabal-install-{{ cabal_version }}"
+
+- name: Install alternatives
+  alternatives:
+    name: "{{ item|basename }}"
+    link: "/usr/bin/{{ item|basename }}"
+    path: "{{ item }}"
+  loop:
+    - /opt/cabal/bin/cabal
+    - /opt/ghc/bin/ghc

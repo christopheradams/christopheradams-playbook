@@ -1,0 +1,4 @@
+---
+- name: Import GHC
+  import_tasks: ghc.yml
+  tags: haskell
