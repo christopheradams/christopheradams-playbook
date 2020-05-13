@@ -1,0 +1,7 @@
+---
+- name: Install stack
+  apt: name=haskell-stack state=latest update_cache=yes
+
+- name: Upgrade stack
+  command: stack upgrade --binary-only
+  become: no

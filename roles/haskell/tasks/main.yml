@@ -2,3 +2,9 @@
 - name: Import GHC
   import_tasks: ghc.yml
   tags: haskell
+
+- name: Import Stack
+  import_tasks: stack.yml
+  tags:
+    - haskell
+    - stack
