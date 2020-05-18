@@ -1,0 +1,8 @@
+---
+- name: Import Docker
+  import_tasks: docker.yml
+  tags: docker
+
+- name: Import Images
+  import_tasks: images.yml
+  tags: docker
