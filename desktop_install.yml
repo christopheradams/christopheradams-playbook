@@ -10,5 +10,6 @@
     - elixir
     - haskell
     - desktop
+    - docker
   vars:
     ubuntu_version: bionic
