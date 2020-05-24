@@ -11,6 +11,7 @@
     state: link
   loop:
     - { src: dash/bashrc, dest: .bashrc }
+    - { src: dash/bash_aliases, dest: .bash_aliases }
     - { src: emacs/emacs.d, dest: .emacs.d }
     - { src: ruby/.gemrc, dest: .gemrc }
     - { src: git/gitconfig, dest: .gitconfig }
