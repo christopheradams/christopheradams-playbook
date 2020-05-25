@@ -6,3 +6,15 @@
     - mailutils
     - sendmail-bin
   tags: sendmail
+
+- name: Configure sendmail
+  expect:
+    command: sendmailconfig
+    responses:
+      Configure sendmail with the existing \/etc\/mail\/sendmail\.conf\? \[Y\] : y
+      Configure sendmail with the existing \/etc\/mail\/sendmail\.mc\? \[Y\] : y
+      Reload the running sendmail now with the new configuration\? \[Y\] : y
+    timeout: 120
+  tags:
+    - sendmail
+    - sendmailconfig
