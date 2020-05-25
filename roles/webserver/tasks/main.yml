@@ -7,3 +7,6 @@
     - nginx
     - python-certbot-nginx
     - python-passlib
+
+- name: Import sendmail
+  import_tasks: sendmail.yml

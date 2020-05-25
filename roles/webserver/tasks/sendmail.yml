@@ -1,0 +1,8 @@
+---
+- name: Install sendmail packages
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - sendmail
+    - mailutils
+    - sendmail-bin
+  tags: sendmail
