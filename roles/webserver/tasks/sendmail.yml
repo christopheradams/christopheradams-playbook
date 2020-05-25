@@ -6,6 +6,22 @@
     - mailutils
     - sendmail-bin
 
+- name: Define sendmail hub
+  lineinfile:
+    path: /etc/mail/sendmail.mc
+    regexp: 'MAIL_HUB'
+    insertafter: "MAILER(`smtp')dnl"
+    line: "define(`MAIL_HUB', `{{ hostname }}.')dnl"
+  tags: sendmailconfig
+
+- name: Define sendmail local relay
+  lineinfile:
+    path: /etc/mail/sendmail.mc
+    regexp: 'LOCAL_RELAY'
+    insertafter: "MAIL_HUB"
+    line: "define(`LOCAL_RELAY', `{{ hostname }}.')dnl"
+  tags: sendmailconfig
+
 - name: Configure sendmail
   expect:
     command: sendmailconfig
