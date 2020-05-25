@@ -10,3 +10,4 @@
 
 - name: Import sendmail
   import_tasks: sendmail.yml
+  tags: sendmail
