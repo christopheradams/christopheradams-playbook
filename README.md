@@ -5,15 +5,15 @@ Manages personal infrastructure.
 ## Requirements
 
 1. Install [Ansible]
-2. Install the Linode API Python library:
+1. Install the Linode API Python library:
 
     ```sh
     pip install linode_api4
     ```
 
-3. Create a [Linode API token] and a [Digital Ocean token]
+1. Create a [Linode API token] and a [Digital Ocean token]
 
-4. Set environment variables:
+1. Set environment variables:
 
    ```sh
     export LINODE_ACCESS_TOKEN='mytoken'
