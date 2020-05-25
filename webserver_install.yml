@@ -6,6 +6,7 @@
   become: true
   roles:
     - common
+    - hosts
     - node
     - ruby
     - git

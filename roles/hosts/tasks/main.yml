@@ -1,0 +1,24 @@
+- name: Set hostname
+  hostname:
+    name: "{{ hostname }}"
+  tags: hostname
+
+- name: Update hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1'
+    line: "127.0.1.1 {{ hostname }} {{ hostname }}"
+    owner: root
+    group: root
+    mode: 0644
+  tags: hosts
+
+- name: Update localhost
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.0\.1'
+    line: "127.0.0.1 localhost localhost.localdomain {{ hostname }}"
+    owner: root
+    group: root
+    mode: 0644
+  tags: hosts
