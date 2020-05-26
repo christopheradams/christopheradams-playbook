@@ -47,3 +47,26 @@
     regexp: "^(\\s*)(#\\s*)('repo-specific-hooks',)"
     line: "\\1\\3"
     backrefs: yes
+
+- name: Create directory for site-local Gitolite code
+  file:
+    path: "{{ gitolite.homedir }}/local/hooks/repo-specific"
+    state: directory
+    owner: "{{ gitolite.user }}"
+    group: "{{ gitolite.user }}"
+    mode: 0700
+
+- name: Install post-receive-email hook for Gitolite
+  copy:
+    src: /usr/share/doc/git/contrib/hooks/post-receive-email
+    dest: "{{ gitolite.homedir }}/local/hooks/repo-specific/post-receive-email"
+    owner: "{{ gitolite.user }}"
+    group: "{{ gitolite.user }}"
+    mode: 0755
+
+- name: Set up Gitolite hooks
+  become: yes
+  become_user: git
+  shell:
+    cmd: gitolite setup --hooks-only
+
