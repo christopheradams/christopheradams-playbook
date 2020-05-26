@@ -28,6 +28,12 @@
     line: "\\1.*\\2"
     backrefs: yes
 
+- name: Add safe showrev config for Gitolite
+  lineinfile:
+    path: "{{ gitolite.homedir }}/.gitolite.rc"
+    insertafter: 'GIT_CONFIG_KEYS'
+    line: '    SAFE_CONFIG => {SHOWREV =>  "git show -C %s; echo"},'
+
 - name: Enable local code directory for Gitolite
   lineinfile:
     path: "{{ gitolite.homedir }}/.gitolite.rc"
