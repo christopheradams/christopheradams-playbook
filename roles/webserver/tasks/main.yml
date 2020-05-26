@@ -11,3 +11,9 @@
 - name: Import sendmail
   import_tasks: sendmail.yml
   tags: sendmail
+
+- name: Disable crontab mail
+  cronvar:
+    name: MAILTO
+    value: "\"\""
+  tags: cron
