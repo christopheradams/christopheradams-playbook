@@ -34,3 +34,10 @@
     regexp: "^(\\s*)(#\\s*)(LOCAL_CODE)(.*)(HOME)(.*)$"
     line: "\\1\\3\\4\\5\\6"
     backrefs: yes
+
+- name: Enable repository specific hooks in Gitolite
+  lineinfile:
+    path: "{{ gitolite.homedir }}/.gitolite.rc"
+    regexp: "^(\\s*)(#\\s*)('repo-specific-hooks',)"
+    line: "\\1\\3"
+    backrefs: yes
