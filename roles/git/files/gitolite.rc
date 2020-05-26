@@ -21,7 +21,14 @@
     UMASK                           =>  0077,
 
     # look for "git-config" in the documentation
-    GIT_CONFIG_KEYS                 =>  '',
+    GIT_CONFIG_KEYS                 =>  '.*',
+
+    # see "compensating for UNSAFE_PATT" in the "git-config" documentation
+    # this can be used in gitolite.conf as:
+    #   config hooks.showrev            = %SHOWREV
+    SAFE_CONFIG => {
+        SHOWREV                     =>  "git show -C %s; echo"
+    },
 
     # comment out if you don't need all the extra detail in the logfile
     LOG_EXTRA                       =>  1,
@@ -46,6 +53,11 @@
         READERS                     =>  1,
         WRITERS                     =>  1,
     },
+
+    # enable anyone with write access to update repository description.
+    # see:
+    #   ssh git@host desc -h
+    WRITER_CAN_UPDATE_DESC          => 1,
 
     # enable caching (currently only Redis).  PLEASE RTFM BEFORE USING!!!
     # CACHE                         =>  'Redis',
@@ -74,7 +86,7 @@
     # suggested locations for site-local gitolite code (see cust.html)
 
         # this one is managed directly on the server
-        # LOCAL_CODE                =>  "$ENV{HOME}/local",
+	LOCAL_CODE                  =>  "$ENV{HOME}/local",
 
         # or you can use this, which lets you put everything in a subdirectory
         # called "local" in your gitolite-admin repo.  For a SECURITY WARNING
@@ -163,7 +175,7 @@
             # 'cgit',
 
             # allow repo-specific hooks to be added
-            # 'repo-specific-hooks',
+            'repo-specific-hooks',
 
         # performance, logging, monitoring...
 
