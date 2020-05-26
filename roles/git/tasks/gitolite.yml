@@ -21,31 +21,14 @@
       file: path="{{ gitolite.homedir }}/{{ gitolite.admin }}.pub" state=absent
   when: not rc.stat.exists
 
-- name: Enable git config keys for Gitolite
-  lineinfile:
-    path: "{{ gitolite.homedir }}/.gitolite.rc"
-    regexp: "^(\\s*GIT_CONFIG_KEYS\\s+=>\\s+').*(',)$"
-    line: "\\1.*\\2"
-    backrefs: yes
-
-- name: Add safe showrev config for Gitolite
-  lineinfile:
-    path: "{{ gitolite.homedir }}/.gitolite.rc"
-    insertafter: 'GIT_CONFIG_KEYS'
-    line: '    SAFE_CONFIG => {SHOWREV =>  "git show -C %s; echo"},'
-
-- name: Enable writer to update descriptions in Gitolite
-  lineinfile:
-    path: "{{ gitolite.homedir }}/.gitolite.rc"
-    insertbefore: 'ROLES'
-    line: '    WRITER_CAN_UPDATE_DESC          => 1,'
-
-- name: Enable local code directory for Gitolite
-  lineinfile:
-    path: "{{ gitolite.homedir }}/.gitolite.rc"
-    regexp: "^(\\s*)(#\\s*)(LOCAL_CODE)(.*)(HOME)(.*)$"
-    line: "\\1\\3\\4\\5\\6"
-    backrefs: yes
+- name: Install gitolite config file
+  copy:
+    src: gitolite.rc
+    dest: "{{ gitolite.homedir }}/.gitolite.rc"
+    owner: "{{ gitolite.user }}"
+    group: "{{ gitolite.user }}"
+    mode: 0600
+  tags: gl_admin
 
 - name: Enable repository specific hooks in Gitolite
   lineinfile:
