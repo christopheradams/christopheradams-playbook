@@ -1,22 +1,4 @@
 ---
-- name: Install gitolite package
-  apt: name=gitolite3 state=latest
-
-- name: Create git user
-  user: name="{{ gitolite.user }}" home="{{ gitolite.homedir }}" shell=/bin/bash state=present
-
-- name: Check if gitolite key exists
-  stat: path="{{ gitolite.homedir }}/.gitolite/keydir/{{ gitolite.admin }}.pub"
-  register: rc
-
-- name: Set up Gitolite
-  block:
-    - name: Install Gitolite admin key
-      copy: src="{{ gitolite.admin_key }}" dest="{{ gitolite.homedir }}/{{ gitolite.admin }}.pub" force=yes owner="{{ gitolite.user }}" group="{{ gitolite.user }}" mode=0640
-    - name: Set up Gitolite admin
-      command: gitolite setup -pk "{{ gitolite.homedir }}/{{ gitolite.admin }}.pub"
-      become: yes
-      become_user: "{{ gitolite.user }}"
-    - name: Clean up the key
-      file: path="{{ gitolite.homedir }}/{{ gitolite.admin }}.pub" state=absent
-  when: not rc.stat.exists
+- name: Import Gitolite
+  import_tasks: gitolite.yml
+  tags: gitolite
