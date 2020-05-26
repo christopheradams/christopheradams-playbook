@@ -20,3 +20,10 @@
     - name: Clean up the key
       file: path="{{ gitolite.homedir }}/{{ gitolite.admin }}.pub" state=absent
   when: not rc.stat.exists
+
+- name: Enable git config keys for Gitolite
+  lineinfile:
+    path: "{{ gitolite.homedir }}/.gitolite.rc"
+    regexp: "^(\\s*GIT_CONFIG_KEYS\\s+=>\\s+').*(',)$"
+    line: "\\1.*\\2"
+    backrefs: yes
