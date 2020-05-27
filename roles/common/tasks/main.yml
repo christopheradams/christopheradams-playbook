@@ -29,3 +29,7 @@
     - openssh-server
     - silversearcher-ag
     - vim
+
+- name: Import motd
+  import_tasks: motd.yml
+  tags: motd

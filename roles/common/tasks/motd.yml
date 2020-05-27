@@ -1,0 +1,6 @@
+---
+- name: Disable message of the day news
+  lineinfile:
+    path: /etc/default/motd-news
+    regexp: 'ENABLED'
+    line: 'ENABLED=0'
