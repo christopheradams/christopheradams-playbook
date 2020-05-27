@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name christopheradams.io www.christopheradams.io;
+    server_name ~(www\.)?christopheradams\.(io|us)$ ~(www\.)?cxadams\.com$;
 
     root /srv/www/christopheradams.io;
     index index.html index.htm;

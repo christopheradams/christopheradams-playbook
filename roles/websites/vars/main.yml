@@ -11,4 +11,8 @@ certs:
   - name: christopheradams.io
     domains:
       - christopheradams.io
+      - christopheradams.us
+      - cxadams.com
       - www.christopheradams.io
+      - www.christopheradams.us
+      - www.cxadams.com
