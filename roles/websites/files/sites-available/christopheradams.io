@@ -24,7 +24,7 @@ server {
 
     error_page 404 /404.html;
 
-    if ($host = 'www.christopheradams.io') {
-        return 301 https://christopheradams.io$request_uri;
+    if ($host != 'christopheradams.io') {
+        return 301 http://christopheradams.io$request_uri;
     }
 }
