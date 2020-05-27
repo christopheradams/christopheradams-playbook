@@ -4,7 +4,11 @@ www:
   - christopheradams.io
   - stats.cxa.la
 certs:
-  - cxa.la
-  - stats.cxa.la
-www_certs:
-  - christopheradams.io
+  - name: cxa.la
+    domains: [cxa.la]
+  - name: stats.cxa.la
+    domains: [stats.cxa.la]
+  - name: christopheradams.io
+    domains:
+      - christopheradams.io
+      - www.christopheradams.io

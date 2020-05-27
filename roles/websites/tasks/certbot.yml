@@ -1,8 +1,4 @@
 ---
 - name: Generate SSL certificates
-  shell: certbot --nginx --cert-name {{ item }} -d {{ item }} --redirect --non-interactive --agree-tos --email {{ email}}
+  shell: certbot --nginx --cert-name {{ item.name }} -d {{ item.domains | join(',') }} --redirect --non-interactive --agree-tos --email {{ email }}
   loop: "{{ certs }}"
-
-- name: Generate SSL certificates with www
-  shell: certbot --nginx --cert-name {{ item }} -d {{ item }} -d www.{{ item}} --redirect --non-interactive --agree-tos --email {{ email}}
-  loop: "{{ www_certs }}"
