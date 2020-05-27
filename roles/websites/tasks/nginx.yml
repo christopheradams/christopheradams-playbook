@@ -1,7 +1,7 @@
 ---
 - name: Copy nginx configs
   copy:
-    src: sites-available/
+    src: nginx/sites-available/
     dest: /etc/nginx/sites-available
 
 - name: Enable sites
