@@ -1,6 +1,7 @@
 ---
 - name: Import nginx
   import_tasks: nginx.yml
+  tags: nginx
 
 - name: Import htpasswd
   import_tasks: htpasswd.yml
