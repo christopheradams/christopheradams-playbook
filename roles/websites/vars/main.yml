@@ -16,3 +16,5 @@ certs:
       - www.christopheradams.io
       - www.christopheradams.us
       - www.cxadams.com
+  - name: git.cxadams.com
+    domains: [git.cxadams.com]
