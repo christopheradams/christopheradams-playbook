@@ -22,4 +22,5 @@
   copy:
     src: html/index.html
     dest: "/srv/www/{{ item }}"
+    force: no # Don't overwrite existing deployed sites
   loop: "{{ www }}"
