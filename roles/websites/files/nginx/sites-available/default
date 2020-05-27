@@ -1,13 +1,13 @@
 server {
-	listen 80 default_server;
+    listen 80 default_server;
 
-	root /srv/www/html;
-	index index.html index.htm;
+    root /srv/www/html;
+    index index.html index.htm;
 
-	server_name _;
+    server_name _;
 
-	location / {
-		try_files $uri $uri/ =404;
-	}
+    location / {
+	try_files $uri $uri/ =404;
+    }
 }
 
