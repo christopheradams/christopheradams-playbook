@@ -9,7 +9,7 @@
     - hosts
     - node
     - ruby
-    - git
+    - gitolite
     - webserver
     - websites
   vars:
