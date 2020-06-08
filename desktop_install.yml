@@ -9,6 +9,7 @@
     - node
     - elixir
     - haskell
+    - git-annex
     - desktop
     - docker
   vars:

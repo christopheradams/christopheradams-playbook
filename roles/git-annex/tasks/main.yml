@@ -1,0 +1,29 @@
+- name: Clone git-annex
+  become: no
+  git:
+    repo: git://git-annex.branchable.com/
+    dest: "{{ git_annex_repo }}"
+  tags: git-annex
+
+- name: Setup git-annex
+  become: no
+  command: stack setup
+  args:
+    chdir: "{{ git_annex_repo }}"
+  tags: git-annex
+
+- name: Build git-annex
+  become: no
+  command: stack build
+  args:
+    chdir: "{{ git_annex_repo }}"
+  tags: git-annex
+
+- name: Install git-annex
+  become: no
+  make:
+    chdir: "{{ git_annex_repo }}"
+    target: install-home
+    params:
+      BUILDER: stack
+  tags: git-annex
