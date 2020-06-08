@@ -1,6 +1,10 @@
 ---
 - name: Install stack
-  apt: name=haskell-stack state=latest update_cache=yes
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - haskell-stack
+    - zlib1g-dev
+    - libtinfo-dev
 
 - name: Upgrade stack
   command: stack upgrade --binary-only
