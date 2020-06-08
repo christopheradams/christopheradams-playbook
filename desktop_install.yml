@@ -5,6 +5,7 @@
   become: yes
   roles:
     - common
+    - git
     - ruby
     - node
     - elixir
