@@ -1,0 +1,29 @@
+---
+- name: Enable universe source
+  apt_repository:
+    repo: "deb-src http://archive.ubuntu.com/ubuntu/ {{item}} universe"
+  loop:
+    - "{{ubuntu_version}}"
+    - "{{ubuntu_version}}-updates"
+
+- name: Install git-annex build deps
+  apt:
+    name: git-annex
+    state: build-dep
+
+- name: Clone git-annex
+  become: no
+  git:
+    repo: git://git-annex.branchable.com/
+    dest: /tmp/git-annex
+
+- name: Make git-annex
+  become: no
+  make:
+    chdir: /tmp/git-annex
+
+- name: Install git-annex
+  become: no
+  make:
+    chdir: /tmp/git-annex
+    target: install-home

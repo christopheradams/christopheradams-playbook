@@ -1,0 +1,4 @@
+---
+- name: Import git-annex
+  import_tasks: git-annex.yml
+  tags: git-annex
