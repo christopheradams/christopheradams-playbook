@@ -23,6 +23,7 @@
   loop:
     - ffmpeg
     - git
+    - imagemagick
     - inotify-tools
     - jq
     - libimage-exiftool-perl
