@@ -1,3 +1,10 @@
+- name: Install packages for build
+  apt: name={{ item }} state=latest update_cache=yes
+  loop:
+    - zlib1g-dev
+    - libtinfo-dev
+  tags: git-annex
+
 - name: Clone git-annex
   git:
     repo: git://git-annex.branchable.com/

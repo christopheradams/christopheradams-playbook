@@ -3,8 +3,6 @@
   apt: name={{ item }} state=latest update_cache=yes
   loop:
     - haskell-stack
-    - zlib1g-dev
-    - libtinfo-dev
 
 - name: Upgrade stack
   command: stack upgrade --binary-only
