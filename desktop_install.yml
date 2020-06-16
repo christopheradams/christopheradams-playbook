@@ -9,8 +9,9 @@
     - node
     - elixir
     - haskell
-    - git-annex
     - desktop
     - docker
+    - role: git-annex
+      become: no
   vars:
     ubuntu_version: bionic
