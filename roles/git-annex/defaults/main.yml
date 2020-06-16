@@ -1,2 +1,3 @@
 ---
 git_annex_repo: /tmp/git-annex
+git_annex_target: install

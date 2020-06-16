@@ -19,7 +19,7 @@
 - name: Install git-annex
   make:
     chdir: "{{ git_annex_repo }}"
-    target: install-home
+    target: "{{ git_annex_target }}"
     params:
       BUILDER: stack
   tags: git-annex

@@ -13,5 +13,7 @@
     - docker
     - role: git-annex
       become: no
+      vars:
+        git_annex_target: install-home
   vars:
     ubuntu_version: bionic
