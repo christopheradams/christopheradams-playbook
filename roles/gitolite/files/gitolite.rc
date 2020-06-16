@@ -115,6 +115,7 @@
             # 'readme',
             # 'sskm',
             # 'D',
+            'git-annex-shell ua',
 
         # These FEATURES are enabled by default.
 
