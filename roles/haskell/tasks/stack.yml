@@ -1,9 +1,12 @@
 ---
-- name: Install stack
-  apt: name={{ item }} state=latest update_cache=yes
-  loop:
-    - haskell-stack
+- name: Download stack install script
+  get_url:
+    url: https://get.haskellstack.org/
+    dest: /tmp/get-stack.sh
+    mode: 0755
+
+- name: Execute stack install script
+  command: /tmp/get-stack.sh -f
 
 - name: Upgrade stack
   command: stack upgrade --binary-only
-  become: no
