@@ -27,6 +27,7 @@
     - inotify-tools
     - jq
     - libimage-exiftool-perl
+    - libmagickwand-dev
     - openssh-server
     - silversearcher-ag
     - vim
