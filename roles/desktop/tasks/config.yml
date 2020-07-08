@@ -16,6 +16,7 @@
     - { src: emacs/emacs.d, dest: .emacs.d }
     - { src: git/gitconfig, dest: .gitconfig }
     - { src: git/gitignore, dest: .gitignore }
+    - { src: latex/latexmkrc, dest: .latexmkrc }
     - { src: ruby/.gemrc, dest: .gemrc }
     - { src: ruby/irbrc, dest: .irbrc }
     - { src: vim/vim, dest: .vim }
