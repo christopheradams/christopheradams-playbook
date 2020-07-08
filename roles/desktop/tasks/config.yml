@@ -10,19 +10,19 @@
     path: "~/{{ item.dest }}"
     state: link
   loop:
-    - { src: dash/bashrc, dest: .bashrc }
     - { src: dash/bash_aliases, dest: .bash_aliases }
+    - { src: dash/bashrc, dest: .bashrc }
+    - { src: dash/profile, dest: .profile }
     - { src: emacs/emacs.d, dest: .emacs.d }
-    - { src: ruby/.gemrc, dest: .gemrc }
     - { src: git/gitconfig, dest: .gitconfig }
     - { src: git/gitignore, dest: .gitignore }
+    - { src: ruby/.gemrc, dest: .gemrc }
     - { src: ruby/irbrc, dest: .irbrc }
-    - { src: dash/profile, dest: .profile }
     - { src: vim/vim, dest: .vim }
     - { src: vim/vimrc-base16-grayscale-light, dest: .vimrc }
+    - { src: X/xprofile, dest: .xprofile }
     - { src: xmobar/.xmobarrc, dest: .xmobarrc }
     - { src: xmonad, dest: .xmonad }
-    - { src: X/xprofile, dest: .xprofile }
 
 - name: Creat npm global directory
   file:
