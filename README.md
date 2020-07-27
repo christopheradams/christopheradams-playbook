@@ -68,10 +68,6 @@ Reboot:
 
     ansible-playbook -vv -i linode.yml webserver_reboot.yml -u root
 
-### Build website
-
-    ansible-playbook -vv -i linode.yml webserver_build.yml -u root
-
 ## Desktop instructions
 
 ### Install Desktop
