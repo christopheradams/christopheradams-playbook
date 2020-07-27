@@ -11,6 +11,8 @@
     - haskell
     - desktop
     - docker
+    - role: ipfs
+      become: no
     - role: git-annex
       become: no
       vars:
