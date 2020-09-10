@@ -1,26 +1,4 @@
 ---
-- name: Download IPFS installer
-  get_url:
-    url: "https://github.com/ipfs/go-ipfs/releases/download/v{{ ipfs_version }}/go-ipfs_v{{ ipfs_version }}_linux-amd64.tar.gz"
-    dest: /tmp/go-ipfs.tar.gz
-
-- name: Unarchive IPFS installer
-  unarchive:
-    src: /tmp/go-ipfs.tar.gz
-    dest: /tmp/
-
-- name: Install IPFS
-  become: yes
-  command: /tmp/go-ipfs/install.sh
-  args:
-    creates: /usr/local/bin/ipfs
-
-- name: Remove IPFS installer
-  file:
-    path: /tmp/go-ipfs
-    state: absent
-
-- name: Init IPFS
-  command: ipfs init
-  args:
-    creates: $HOME/.ipfs
+- name: Import install
+  import_tasks: install.yml
+  tags: ipfs
