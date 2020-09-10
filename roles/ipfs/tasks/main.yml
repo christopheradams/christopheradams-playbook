@@ -2,3 +2,10 @@
 - name: Import install
   import_tasks: install.yml
   tags: ipfs
+
+- name: Import service
+  import_tasks: service.yml
+  when: ipfs_service
+  tags:
+    - ipfs
+    - systemd

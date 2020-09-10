@@ -1,0 +1,14 @@
+- name: Install ipfs systemd service file
+  become: yes
+  copy:
+    src: ipfs.service
+    dest: /etc/systemd/system/ipfs.service
+
+- name: Enable ipfs systemd service
+  become: yes
+  systemd:
+    name: ipfs
+    state: started
+    daemon_reload: yes
+    enabled: yes
+    scope: system
