@@ -10,6 +10,9 @@
     - node
     - ruby
     - gitolite
+    - role: ipfs
+      vars:
+        ipfs_service: true
     - webserver
     - websites
   vars:
