@@ -18,3 +18,5 @@ certs:
       - www.cxadams.com
   - name: git.cxadams.com
     domains: [git.cxadams.com]
+  - name: ipfs.cxadams.com
+    domains: [ipfs.cxadams.com]
