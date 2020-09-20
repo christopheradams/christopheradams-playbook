@@ -21,3 +21,20 @@
 - name: Install fail2ban
   apt: name=fail2ban state=latest update_cache=yes
   tags: fail2ban
+
+- name: Create journal conf directory
+  file:
+    path: /etc/systemd/journald.conf.d
+    state: directory
+  tags:
+    - systemd
+    - logs
+
+- name: Configure journal size
+  copy:
+    src: size.conf
+    dest: /etc/systemd/journald.conf.d/size.conf
+  tags:
+    - systemd
+    - logs
+
