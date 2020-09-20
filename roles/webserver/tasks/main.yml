@@ -17,3 +17,7 @@
     name: MAILTO
     value: "\"\""
   tags: cron
+
+- name: Install fail2ban
+  apt: name=fail2ban state=latest update_cache=yes
+  tags: fail2ban
