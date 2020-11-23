@@ -20,6 +20,10 @@
 - name: Import Xmonad
   import_tasks: xmonad.yml
 
+- name: Import pandoc
+  import_tasks: pandoc.yml
+  tags: pandoc
+
 - name: Import Emacs
   import_tasks: emacs.yml
 
