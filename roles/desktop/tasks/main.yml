@@ -13,6 +13,7 @@
     - python-gi
     - samba
     - thunderbird
+    - usb-creator-gtk
     - vlc
 
 - name: Import config
