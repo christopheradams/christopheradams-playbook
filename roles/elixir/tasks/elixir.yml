@@ -1,7 +1,7 @@
 ---
 - name: Install Elixir
   apt:
-    deb: "https://packages.erlang-solutions.com/erlang/debian/pool/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_version}}_all.deb"
+    deb: "https://packages.erlang-solutions.com/erlang/debian/pool/elixir_{{elixir_version}}-1~ubuntu~{{ubuntu_codename}}_all.deb"
 
 - name: Install hex
   become: no

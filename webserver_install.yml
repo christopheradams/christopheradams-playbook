@@ -16,4 +16,4 @@
     - webserver
     - websites
   vars:
-    ubuntu_version: bionic
+    ubuntu_codename: bionic

@@ -1,4 +1,4 @@
 ---
 - name: Install Erlang
   apt:
-    deb: "https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_{{erlang_version}}-1~ubuntu~{{ubuntu_version}}_amd64.deb"
+    deb: "https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_{{erlang_version}}-1~ubuntu~{{ubuntu_codename}}_amd64.deb"

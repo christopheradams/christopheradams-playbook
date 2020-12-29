@@ -2,5 +2,5 @@
 - name: Pull default Ubuntu Docker image
   docker_image:
     name: ubuntu
-    tag: "{{ ubuntu_version }}"
+    tag: "{{ ubuntu_codename }}"
     source: pull
