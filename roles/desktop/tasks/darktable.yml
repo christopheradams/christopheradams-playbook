@@ -1,0 +1,14 @@
+---
+- name: Add Darktable apt key
+  apt_key:
+    url: https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_{{ubuntu_release}}/Release.key
+    keyring: /etc/apt/trusted.gpg.d/graphics_darktable.gpg
+
+- name: Add Darktable Repository
+  apt_repository:
+    repo: deb [arch=amd64] http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_{{ubuntu_release}}/ /
+    filename: /etc/apt/sources.list.d/graphics:darktable
+    state: present
+
+- name: Install Darktable
+  apt: update_cache=yes name=darktable state=latest

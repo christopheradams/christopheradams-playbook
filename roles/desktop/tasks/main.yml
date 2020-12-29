@@ -47,3 +47,8 @@
 - name: Import Dropbox
   become: no
   import_tasks: dropbox.yml
+
+- name: Import Dropbox
+  import_tasks: darktable.yml
+  tags: darktable
+
