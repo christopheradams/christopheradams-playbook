@@ -13,4 +13,5 @@
     - role: ipfs
       become: no
   vars:
+    ubuntu_release: 18.04
     ubuntu_codename: bionic

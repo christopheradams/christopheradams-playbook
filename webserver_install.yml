@@ -16,4 +16,5 @@
     - webserver
     - websites
   vars:
+    ubuntu_release: 18.04
     ubuntu_codename: bionic
