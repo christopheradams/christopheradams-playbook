@@ -6,4 +6,4 @@ After=network.target
 ExecStart=/usr/local/bin/ipfs daemon
 
 [Install]
-WantedBy=multiuser.target
+WantedBy=multi-user.target
