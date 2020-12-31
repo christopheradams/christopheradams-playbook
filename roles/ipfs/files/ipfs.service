@@ -3,6 +3,8 @@ Description=IPFS daemon
 After=network.target
 
 [Service]
+Type=simple
+Restart=always
 ExecStart=/usr/local/bin/ipfs daemon
 
 [Install]
