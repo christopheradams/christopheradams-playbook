@@ -1,0 +1,4 @@
+---
+- name: Install rclone
+  apt:
+    deb: "https://downloads.rclone.org/v{{rclone_version}}/rclone-v{{rclone_version}}-linux-amd64.deb"
