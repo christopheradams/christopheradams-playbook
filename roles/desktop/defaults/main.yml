@@ -3,5 +3,5 @@ apps_path: ~/bin
 dotfiles_repo: git@github.com:christopheradams/dotfiles.git
 dropbox_cmd: ~/.local/bin/dropbox
 font_path: ~/.local/share/fonts/
-ganache_version: 2.4.0
+ganache_version: 2.5.4
 rclone_version: 1.53.3
