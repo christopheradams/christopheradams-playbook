@@ -17,4 +17,3 @@
     global: yes
   loop:
     - truffle
-    - "@openzeppelin/cli"
