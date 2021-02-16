@@ -45,7 +45,6 @@
   import_tasks: blockchain.yml
 
 - name: Import Dropbox
-  become: no
   import_tasks: dropbox.yml
   tags: dropbox
 
