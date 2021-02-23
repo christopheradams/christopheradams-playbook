@@ -1,0 +1,7 @@
+---
+- name: Add HandBrake repository
+  apt_repository:
+    repo: ppa:stebbins/handbrake-releases
+
+- name: Install HandBrake
+  apt: update_cache=yes name=handbrake state=latest

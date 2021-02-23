@@ -52,6 +52,10 @@
   import_tasks: darktable.yml
   tags: darktable
 
+- name: Import HandBrake
+  import_tasks: handbrake.yml
+  tags: handbrake
+
 - name: Import rclone
   import_tasks: rclone.yml
   tags: rclone
