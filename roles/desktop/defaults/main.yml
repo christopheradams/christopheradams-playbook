@@ -2,6 +2,7 @@
 apps_path: ~/bin
 dotfiles_repo: git@github.com:christopheradams/dotfiles.git
 dropbox_version: 2020.03.04
+emacs_version: emacs26
 font_path: ~/.local/share/fonts/
 ganache_version: 2.5.4
 rclone_version: 1.53.3

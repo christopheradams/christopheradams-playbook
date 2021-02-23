@@ -4,4 +4,4 @@
     repo: ppa:kelleyk/emacs
 
 - name: Install Emacs
-  apt: update_cache=yes name=emacs26 state=latest
+  apt: update_cache=yes name={{ emacs_version }} state=latest

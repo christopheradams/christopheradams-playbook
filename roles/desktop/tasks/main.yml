@@ -29,6 +29,7 @@
 
 - name: Import Emacs
   import_tasks: emacs.yml
+  tags: emacs
 
 - name: Import Chrome
   import_tasks: chrome.yml
