@@ -60,3 +60,7 @@
 - name: Import rclone
   import_tasks: rclone.yml
   tags: rclone
+
+- name: Import ImageMagick
+  import_tasks: imagemagick.yml
+  tags: imagemagick

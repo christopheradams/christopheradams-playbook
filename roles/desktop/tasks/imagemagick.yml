@@ -1,0 +1,24 @@
+---
+- name: Download ImageMagick
+  unarchive:
+    src: "https://download.imagemagick.org/ImageMagick/download/ImageMagick-{{ imagemagick_version }}.tar.xz"
+    remote_src: yes
+    dest: /usr/local/src/
+    creates: "/usr/local/src/ImageMagick-{{ imagemagick_version }}"
+
+- name: Configure ImageMagick
+  command: "./configure"
+  args:
+    chdir: "/usr/local/src/ImageMagick-{{ imagemagick_version }}"
+    creates: "/usr/local/src/ImageMagick-{{ imagemagick_version }}/config.status"
+
+- name: Build ImageMagick
+  command: "make install"
+  args:
+    chdir: "/usr/local/src/ImageMagick-{{ imagemagick_version }}"
+
+- name: Link static ImageMagick libraries
+  command: "ldconfig /usr/local/lib"
+  args:
+    chdir: "/usr/local/src/ImageMagick-{{ imagemagick_version }}"
+
