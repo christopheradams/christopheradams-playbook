@@ -13,6 +13,9 @@
 
 - name: Install Phoenix
   become: no
-  command: mix archive.install hex phx_new {{phoenix_version}}
+  ansible.builtin.expect:
+    command: mix archive.install hex phx_new {{phoenix_version}}
+    responses:
+      (?i)install: "Y"
   tags: phoenix
 
