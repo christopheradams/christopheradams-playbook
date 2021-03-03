@@ -1,3 +1,4 @@
 ---
 elixir_version: 1.10.4
 erlang_version: 23.0.3
+phoenix_version: 1.5.8

@@ -13,5 +13,6 @@
 
 - name: Install Phoenix
   become: no
-  command: mix archive.install hex phx_new 1.5.1
+  command: mix archive.install hex phx_new {{phoenix_version}}
+  tags: phoenix
 
