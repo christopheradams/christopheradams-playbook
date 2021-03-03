@@ -11,6 +11,14 @@
   become: no
   command: mix local.rebar --force
 
+- name: Uninstall previous Phoenix
+  become: no
+  ansible.builtin.expect:
+    command: mix archive.uninstall phx_new
+    responses:
+      (?i)uninstall: "Y"
+  tags: phoenix
+
 - name: Install Phoenix
   become: no
   ansible.builtin.expect:
