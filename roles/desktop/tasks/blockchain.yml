@@ -17,3 +17,13 @@
     global: yes
   loop:
     - truffle
+
+- name: Add Go Ethereum repository
+  apt_repository:
+    repo: ppa:ethereum/ethereum
+  tags: geth
+
+- name: Install Go Ethereum
+  apt: update_cache=yes name=ethereum state=latest
+  tags: geth
+
