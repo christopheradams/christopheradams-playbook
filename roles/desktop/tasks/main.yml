@@ -15,6 +15,7 @@
     - thunderbird
     - usb-creator-gtk
     - vlc
+    - xprintidle
 
 - name: Import config
   become: no
