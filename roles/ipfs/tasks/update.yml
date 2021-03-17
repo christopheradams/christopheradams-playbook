@@ -1,0 +1,29 @@
+---
+- name: Download IPFS updater
+  get_url:
+    url: "https://dist.ipfs.io/ipfs-update/v{{ ipfs_updater_version }}/ipfs-update_v{{ ipfs_updater_version }}_linux-amd64.tar.gz"
+    dest: /tmp/ipfs-update.tar.gz
+
+- name: Unarchive IPFS updater
+  unarchive:
+    src: /tmp/ipfs-update.tar.gz
+    dest: /tmp/
+
+- name: Install IPFS updater
+  become: yes
+  command: bash install.sh
+  args:
+    chdir: /tmp/ipfs-update/
+    creates: /usr/local/bin/ipfs-update
+
+- name: Remove IPFS updater installer
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /tmp/ipfs-update
+    - /tmp/ipfs-update.tar.gz
+
+- name: Install IPFS
+  become: yes
+  command: ipfs-update install {{ ipfs_version }}

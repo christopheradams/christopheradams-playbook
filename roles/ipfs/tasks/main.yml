@@ -1,6 +1,6 @@
 ---
-- name: Import install
-  import_tasks: install.yml
+- name: Import update
+  import_tasks: update.yml
   tags: ipfs
 
 - name: Import service

@@ -1,3 +1,4 @@
 ---
-ipfs_version: 0.6.0
+ipfs_version: 0.8.0
+ipfs_updater_version: 1.6.0
 ipfs_service: false
