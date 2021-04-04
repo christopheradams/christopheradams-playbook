@@ -12,10 +12,14 @@ certs:
   - name: christopheradams.io
     domains:
       - christopheradams.io
-      - christopheradams.us
-      - cxadams.com
       - www.christopheradams.io
+  - name: christopheradams.us
+    domains:
+      - christopheradams.us
       - www.christopheradams.us
+  - name: cxadams.com
+    domains:
+      - cxadams.com
       - www.cxadams.com
   - name: git.cxadams.com
     domains: [git.cxadams.com]
