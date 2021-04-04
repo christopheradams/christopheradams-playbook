@@ -8,7 +8,7 @@
 
 - name: Import certbot
   import_tasks: certbot.yml
-  tags: certbot
+  tags: certs
 
 - name: Import goaccess
   import_tasks: goaccess.yml
