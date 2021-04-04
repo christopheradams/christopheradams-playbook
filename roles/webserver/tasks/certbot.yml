@@ -9,3 +9,11 @@
     name: certbot
     link: /usr/bin/certbot
     path: /snap/bin/certbot
+
+- name: Set certbot containment
+  command: snap set certbot trust-plugin-with-root=ok
+
+- name: Install Cloudflare DNS plugin for certbot
+  snap:
+    name: certbot-dns-cloudflare
+  tags: cloudflare
