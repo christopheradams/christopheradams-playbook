@@ -9,10 +9,6 @@ certs:
     domains: [cxa.la]
   - name: stats.cxa.la
     domains: [stats.cxa.la]
-  - name: christopheradams.io
-    domains:
-      - christopheradams.io
-      - www.christopheradams.io
   - name: christopheradams.us
     domains:
       - christopheradams.us
@@ -27,3 +23,8 @@ certs:
     domains: [ipfs.cxadams.com]
   - name: files.cxadams.com
     domains: [files.cxadams.com]
+cloudflare:
+  - name: christopheradams.io
+    domains:
+      - christopheradams.io
+      - www.christopheradams.io

@@ -2,3 +2,8 @@
 - name: Generate SSL certificates
   shell: certbot --nginx --cert-name {{ item.name }} -d {{ item.domains | join(',') }} --redirect --non-interactive --agree-tos --email {{ email }}
   loop: "{{ certs }}"
+
+- name: Generate SSL certificates through Cloudflare
+  shell: certbot certonly --dns-cloudflare --dns-cloudflare-credentials ~/cloudflare.ini -d {{ item.domains | join(',') }} --non-interactive --agree-tos --email {{ email }}
+  loop: "{{ cloudflare }}"
+  tags: cloudflare
