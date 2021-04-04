@@ -17,13 +17,15 @@ Manages personal infrastructure.
     pip install linode_api4
     ```
 
-1. Create a [Linode API token] and a [Digital Ocean token]
+1. Create a [Linode API token] and a [Digital Ocean token] and a
+   [Cloudflare API token]
 
 1. Set environment variables:
 
    ```sh
     export LINODE_ACCESS_TOKEN='mytoken'
     export DO_API_TOKEN='mytoken'
+    export CLOUDFLARE_API_TOKEN='mytoken'
     export ROOT_PASSWORD='mypassword123'
     export ROOT_HTPASSWD='mypassword123'
     export SSH_PUBKEY='/path/to/my_rsa.pub'
@@ -85,3 +87,4 @@ Reboot:
 [Ansible]: https://www.linode.com/docs/applications/configuration-management/getting-started-with-ansible/#install-ansible
 [Digital Ocean token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
 [Linode API token]: https://www.linode.com/docs/platform/api/getting-started-with-the-linode-api/#get-an-access-token
+[Cloudflare API token]: https://certbot-dns-cloudflare.readthedocs.io/en/stable/#credentials

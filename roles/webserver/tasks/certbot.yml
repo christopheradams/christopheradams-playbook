@@ -17,3 +17,11 @@
   snap:
     name: certbot-dns-cloudflare
   tags: cloudflare
+
+- name: Add Cloudflare configuration
+  lineinfile:
+    path: $HOME/.secrets/certbot/cloudflare.ini
+    line: "dns_cloudflare_api_token={{ cloudflare_token }}"
+    create: yes
+    mode: 0600
+  tags: cloudflare

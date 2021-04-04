@@ -6,5 +6,6 @@ password: "{{ lookup('env','ROOT_PASSWORD') }}"
 htpasswd: "{{ lookup('env','ROOT_HTPASSWD') }}"
 linode_token: "{{ lookup('env','LINODE_ACCESS_TOKEN') }}"
 do_token: "{{ lookup('env','DO_API_TOKEN') }}"
+cloudflare_token: "{{ lookup('env','CLOUDFLARE_API_TOKEN') }}"
 gitolite:
   admin_key: "{{ ssh_keys }}"
