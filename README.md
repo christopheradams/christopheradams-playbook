@@ -5,6 +5,12 @@ Manages personal infrastructure.
 ## Requirements
 
 1. Install [Ansible]
+1. Install Ansible community collection:
+
+    ```sh
+    ansible-galaxy collection install community.general
+    ```
+
 1. Install the Linode API Python library:
 
     ```sh
