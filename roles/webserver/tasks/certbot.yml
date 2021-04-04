@@ -1,0 +1,11 @@
+---
+- name: Install certbot
+  community.general.snap:
+    name: certbot
+    classic: yes
+
+- name: Install certbot alternatives
+  alternatives:
+    name: certbot
+    link: /usr/bin/certbot
+    path: /snap/bin/certbot

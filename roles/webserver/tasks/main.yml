@@ -2,11 +2,13 @@
 - name: Install webserver packages
   apt: name={{ item }} state=latest update_cache=yes
   loop:
-    - certbot
     - goaccess
     - nginx
-    - python-certbot-nginx
     - python-passlib
+
+- name: Import certbot
+  import_tasks: certbot.yml
+  tags: certbot
 
 - name: Import sendmail
   import_tasks: sendmail.yml
